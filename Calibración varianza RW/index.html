@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Calibración - EMI</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Calibraci\u00f3n";
+    var mkdocs_page_input_path = "Calibraci\u00f3n varianza RW.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> EMI</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Principal</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Calibración</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#propuesta-de-modelado-de-caminata-aleatoria-para-la-evaluacion-de-medidas-de-inflacion-emi-8-de-julio-de-2020">Propuesta de modelado de caminata aleatoria para la evaluación de medidas de inflación (EMI) - 8 de julio de 2020</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#calibracion-de-la-varianza">Calibración de la varianza</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tendencia-estocastica-en-las-trayectorias-de-inflacion-parametrica">Tendencia estocástica en las trayectorias de inflación paramétrica</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Otros</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../newpage/">Nueva página</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">EMI</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Principal &raquo;</li>
+        
+      
+    
+    <li>Calibración</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="calibracion-de-varianza-del-proceso-de-caminata-aleatoria-del-emi">Calibración de varianza del proceso de caminata aleatoria del EMI</h1>
+<p>Se describe a continuación la propuesta de calibración de caminata aleatoria planteada por Juan Carlos Castañeda para la tendencia de caminata aleatoria del proceso de evaluación de medidas de inflación.</p>
+<ul>
+<li><a href="#calibración-de-varianza-del-proceso-de-caminata-aleatoria-del-emi">Calibración de varianza del proceso de caminata aleatoria del EMI</a></li>
+<li><a href="#propuesta-de-modelado-de-caminata-aleatoria-para-la-evaluación-de-medidas-de-inflación-emi---8-de-julio-de-2020">Propuesta de modelado de caminata aleatoria para la evaluación de medidas de inflación (EMI) - 8 de julio de 2020</a><ul>
+<li><a href="#calibración-de-la-varianza">Calibración de la varianza</a></li>
+</ul>
+</li>
+<li><a href="#tendencia-estocástica-en-las-trayectorias-de-inflación-paramétrica">Tendencia estocástica en las trayectorias de inflación paramétrica</a></li>
+</ul>
+<h2 id="propuesta-de-modelado-de-caminata-aleatoria-para-la-evaluacion-de-medidas-de-inflacion-emi-8-de-julio-de-2020">Propuesta de modelado de caminata aleatoria para la evaluación de medidas de inflación (EMI) - 8 de julio de 2020</h2>
+<p>Se propone que la tendencia estocástica de la inflación, en la EMI, sea aditiva (en vez de multiplicativa).  El propósito de hacer dicha tendencia aditiva es que haya continuidad en su dirección cuando la inflación intermensual (poblacional o muestral) cambie de signo.  </p>
+<p>Por ejemplo, si la tendencia estocástica de la inflación (en la forma de una caminata aleatoria que implica la existencia de persistencia serial positiva) es multiplicativa y mayor que uno, cuando la inflación intermensual pasa de ser positiva a ser negativa, entonces el valor grande de la tendencia estocástica hace que se pase de una inflación positiva grande a una inflación negativa grande, perdiéndose continuidad en la persistencia serial positiva que se pretende modelar con la caminata aleatoria.  </p>
+<p>En cambio, si la referida tendencia estocástica es aditiva, entonces se preserva la continuidad en dicha tendencia estocástica cuando la inflación intermensual cambia de signo.</p>
+<p>En particular, se propone el modelo siguiente:</p>
+<blockquote>
+<p>$$ z_t = x_t + y_t $$
+en donde <span><span class="MathJax_Preview">z_t</span><script type="math/tex">z_t</script></span> representa la variación intermensual del IPC en <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>, <span><span class="MathJax_Preview">x_t</span><script type="math/tex">x_t</script></span> la variación intermensual del IPC en <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> sin tendencia estocástica y <span><span class="MathJax_Preview">y_t</span><script type="math/tex">y_t</script></span> es el componente aditivo de tendencia estocástica en <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>.</p>
+</blockquote>
+<p>El modelo para la tendencia estocástica aditiva es el de una caminata aleatoria:
+$$ y_t = y_{t-1} + \varepsilon_t, \quad y_0 = 0, \quad \varepsilon_t\sim N(0, \sigma_\varepsilon^2) $$</p>
+<h3 id="calibracion-de-la-varianza">Calibración de la varianza</h3>
+<p>Para generar las series de tiempo correspondientes al parámetro poblacional y a las simulaciones muestrales, la variable <span><span class="MathJax_Preview">y_t</span><script type="math/tex">y_t</script></span> tiene valor inicial cero y luego evoluciona de acuerdo con su ley de movimiento (caminata aleatoria).  Para este propósito, los valores de los choques estocásticos <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> se extraen de una distribución normal con media cero y con varianza <span><span class="MathJax_Preview">\sigma_\varepsilon^2</span><script type="math/tex">\sigma_\varepsilon^2</script></span>.</p>
+<p>El valor de <span><span class="MathJax_Preview">\sigma_\varepsilon^2</span><script type="math/tex">\sigma_\varepsilon^2</script></span> se obtiene a partir de los datos históricos observados de inflación de Guatemala, de la manera siguiente:</p>
+<blockquote>
+<p><span><span class="MathJax_Preview"><span><span class="MathJax_Preview">\sigma_\varepsilon^2 = \text{Var}(\delta_t)</span><script type="math/tex">\sigma_\varepsilon^2 = \text{Var}(\delta_t)</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">\sigma_\varepsilon^2 = \text{Var}(\delta_t)</span><script type="math/tex">\sigma_\varepsilon^2 = \text{Var}(\delta_t)</script></span></script></span>
+en donde<br />
+<span><span class="MathJax_Preview"><span><span class="MathJax_Preview">\delta_t = \frac{1}{12} \sum_{j=1}^{12} \left(q_{t-j} - q_{t-j-1} \right)</span><script type="math/tex">\delta_t = \frac{1}{12} \sum_{j=1}^{12} \left(q_{t-j} - q_{t-j-1} \right)</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">\delta_t = \frac{1}{12} \sum_{j=1}^{12} \left(q_{t-j} - q_{t-j-1} \right)</span><script type="math/tex">\delta_t = \frac{1}{12} \sum_{j=1}^{12} \left(q_{t-j} - q_{t-j-1} \right)</script></span></script></span><br />
+corresponde a la media móvil de 12 meses de las diferencias en las variaciones intermensuales del IPC <span><span class="MathJax_Preview">q_t</span><script type="math/tex">q_t</script></span> del período <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> en los datos históricos.</p>
+</blockquote>
+<p>Al aplicar este proceso se obtiene la siguiente gráfica de variaciones intermensuales del IPC y sus medias móviles de 12 meses. Como se puede apreciar, la varianza es mucho menor para las medias móviles.  </p>
+<p><img alt="Variaciones intermensuales IPC" src="../images/Calibraci%C3%B3n%20varianza%20RW_2020-07-14_154635.png" />  </p>
+<p>En la siguiente tabla se presentan las estimaciones de varianza y desviación estándar de las variaciones intermensuales del IPC en las dos períodos del IPC (así como en el período completo). Los valores se muestran en puntos porcentuales para las desviaciones estándar. Se puede resaltar que los valores de desviación estándar sin suavizamiento de media móvil parecen ser muy grandes, y por lo tanto, inadecuados para utilizarse en bruto para el proceso de calibración de varianza de la tendencia de caminata aleatoria.</p>
+<table>
+<thead>
+<tr>
+<th>Período</th>
+<th align="right">Varianza</th>
+<th align="right">Desviación estándar</th>
+<th align="right">Varianza media móvil</th>
+<th align="right">Desviación estándar media móvil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base 2000</td>
+<td align="right">0.2713</td>
+<td align="right">0.5209</td>
+<td align="right">0.003490</td>
+<td align="right">0.0591</td>
+</tr>
+<tr>
+<td>Base 2010</td>
+<td align="right">0.2162</td>
+<td align="right">0.4650</td>
+<td align="right">0.001868</td>
+<td align="right">0.0432</td>
+</tr>
+<tr>
+<td>Período completo</td>
+<td align="right">0.2435</td>
+<td align="right">0.4935</td>
+<td align="right">0.002693</td>
+<td align="right">0.0519</td>
+</tr>
+</tbody>
+</table>
+<p>Ahora se procederá a computar una señal de ruido blanco utilizando la varianza de la media móvil de 12 meses de las variaciones intermensuales del IPC de la base 2000 y del período completo. A continuación, como ejemplo, se muestra una de las realizaciones:  </p>
+<p><img alt="Ruido blanco" src="../images/Calibraci%C3%B3n%20varianza%20RW_2020-07-16_155842.png" />  </p>
+<p>Como se puede observar, la volatilidad de la señal de ruido blanco utilizando la varianza del período completo (<span><span class="MathJax_Preview">\text{Var}(\delta_t) = 0.0027</span><script type="math/tex">\text{Var}(\delta_t) = 0.0027</script></span>) es ligeramente menor a la volatilidad de la señal de ruido blanco que utiliza la varianza solamente de la base 2000 (<span><span class="MathJax_Preview">\text{Var}(\delta_t) = 0.0035</span><script type="math/tex">\text{Var}(\delta_t) = 0.0035</script></span>). Aunque, en apariencia, la diferencia de volatilidad no parece muy importante.</p>
+<p>A continuación se procederá a utilizar la señal de ruido blanco del período completo para computar las trayectorias paramétricas de inflación. Esto permitirá evaluar si la volatilidad calibrada a través de este procedimiento es adecuada, es decir, si permite que la evolución de la tendencia estocástica genere cambios significativos, pero no muy grandes, en la trayectoria de la inflación interanual.</p>
+<h2 id="tendencia-estocastica-en-las-trayectorias-de-inflacion-parametrica">Tendencia estocástica en las trayectorias de inflación paramétrica</h2>
+<p>En esta sección se describe cómo quedan los parámetros poblacionales resultantes al utilizar la señal de ruido blanco aditiva calibrada con las variaciones intermensuales del IPC.</p>
+<p>En esta figura se aprecia las diferentes componentes de tendencia, los cuales son aahora aditivos en el proceso de cómputo de inflación paramétrica y en el remuestreo.  </p>
+<p><img alt="Componentes tendencia" src="../images/Calibraci%C3%B3n%20varianza%20RW_2020-07-16_161402.png" />  </p>
+<p>Como referencia, se muestran las trayectorias de inflación paramétrica sin tendencia.  </p>
+<p><img alt="Trayectorias paramétricas sin tendencia" src="../images/Calibraci%C3%B3n%20varianza%20RW_2020-07-16_160221.png" />  </p>
+<p>Se muestran las trayectorias de inflación paramétrica utilizando la componente aditiva de tendencia de caminata aleatoria que se muestra en color morado en la figura anterior de componentes de tendencia.  </p>
+<p><img alt="Trayectorias paramétricas tendencia aditiva" src="../images/Calibraci%C3%B3n%20varianza%20RW_2020-07-16_160236.png" />  </p>
+<p>Como se observa, se obtienen trayectorias de inflación paramétrica con tendencia estocástica y moderada volatilidad, por lo que el método de calibración podría considerarse adecuadamente escalado para modelar la varianza del proceso de caminata aleatoria de la tendencia.  </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../newpage/" class="btn btn-neutral float-right" title="Nueva página">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../about/" class="btn btn-neutral" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../about/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../newpage/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
