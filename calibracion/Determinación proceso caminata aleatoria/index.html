@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Determinación del proceso de caminata aleatoria - EMI</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Determinaci\u00f3n del proceso de caminata aleatoria";
+    var mkdocs_page_input_path = "calibracion\\Determinaci\u00f3n proceso caminata aleatoria.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/matlab.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> EMI</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Principal</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../cuerpo/introduccion/">Introducción</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../cuerpo/justificacion/">Justificación</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Calibración</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Determinación del proceso de caminata aleatoria</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#proceso-de-caminata-aleatoria">Proceso de caminata aleatoria</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#desviacion-estandar-promedio-en-base-2000-y-2010">Desviación estándar promedio en base 2000 y 2010</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#propuesta-para-el-proceso-de-caminata-aleatoria">Propuesta para el proceso de caminata aleatoria</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Calibraci%C3%B3n%20varianza%20RW/">Calibración de varianza del proceso de caminata aleatoria</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Selecci%C3%B3n%20simulaciones/">Selección del número de simulaciones</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Determinaci%C3%B3n%20medida%20evaluaci%C3%B3n/">Selección de la medida de evaluación</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Remuestreo%20block%20bootstrap/">Remuestreo con block bootstrap</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">EMI</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Calibración &raquo;</li>
+        
+      
+    
+    <li>Determinación del proceso de caminata aleatoria</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="determinacion-del-proceso-de-caminata-aleatoria">Determinación del proceso de caminata aleatoria<a class="headerlink" href="#determinacion-del-proceso-de-caminata-aleatoria" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>A continuación, se expone el proceso actual de caminata aleatoria. </p>
+</li>
+<li>
+<p>Posteriormente, se hace una propuesta alternativa para la calibración de la tendencia aleatoria.</p>
+</li>
+</ul>
+<h3 id="proceso-de-caminata-aleatoria">Proceso de caminata aleatoria<a class="headerlink" href="#proceso-de-caminata-aleatoria" title="Permanent link">&para;</a></h3>
+<p>Actualmente, el proceso de caminata aleatoria se genera con un modelo de caminata aleatoria 
+$$ a_t = a_{t-1} + \epsilon_t \quad \text{ en donde } \quad a_0 = 1, t = 1,\ldots, 120$$
+- Se asume que la señal de perturbación <span><span class="MathJax_Preview">\epsilon_t</span><script type="math/tex">\epsilon_t</script></span> es independiente a los datos del IPC. En particular, <span><span class="MathJax_Preview">\epsilon_t \sim  N(0, 0.05^2)</span><script type="math/tex">\epsilon_t \sim  N(0, 0.05^2)</script></span>.<br />
+- Se genera una señal <span><span class="MathJax_Preview">\epsilon_t</span><script type="math/tex">\epsilon_t</script></span> diferente para cada una de los períodos del IPC Base 2000 y 2010. 
+- La señal empieza en <span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> al inicio de cada base.</p>
+<h3 id="desviacion-estandar-promedio-en-base-2000-y-2010">Desviación estándar promedio en base 2000 y 2010<a class="headerlink" href="#desviacion-estandar-promedio-en-base-2000-y-2010" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Se muestra la desviación estándar promedio entre gastos básicos (porcentajes)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Base</th>
+<th align="right">Mínimo</th>
+<th align="right">Media</th>
+<th align="right">Media Ponderada</th>
+<th align="right">Mediana</th>
+<th align="right">Máximo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Base 2000</td>
+<td align="right">0.3604</td>
+<td align="right">1.6037</td>
+<td align="right">1.5731</td>
+<td align="right">0.7310</td>
+<td align="right">21.6526</td>
+</tr>
+<tr>
+<td align="left">Base 2010</td>
+<td align="right">0</td>
+<td align="right">1.0690</td>
+<td align="right">1.0666</td>
+<td align="right">0.3865</td>
+<td align="right">13.3409</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Desviación estándar utilizada = 0.05</li>
+<li>Rango propuesto: 1% al 5%.</li>
+</ul>
+<h3 id="propuesta-para-el-proceso-de-caminata-aleatoria">Propuesta para el proceso de caminata aleatoria<a class="headerlink" href="#propuesta-para-el-proceso-de-caminata-aleatoria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Se propone darle continuidad al proceso de caminata aleatoria, es decir, que el proceso no regrese a <span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> al inicio de la base 2010.</li>
+<li>
+<p>Se calibrará, tantas veces como sea necesario, hasta obtener una trayectoria que muestre movimientos aleatorios altos y bajos. </p>
+</li>
+<li>
+<p>Se propone <strong>fijar</strong> la varianza del proceso de ruido: </p>
+</li>
+<li>Que sea la misma magnitud entre bases del IPC. Esto para no generar más fuentes de variabilidad entre bases del IPC, más que las exhibidas por los datos.</li>
+<li>Que este valor sea fijo, en un nivel de entre 0.01 y 0.05, de tal forma que el factor variable en el tiempo <span><span class="MathJax_Preview">a_t</span><script type="math/tex">a_t</script></span> se encuentre siempre alrededor de <span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>, para evitar mayores distorsiones en las distribuciones de variaciones intermensuales.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Calibraci%C3%B3n%20varianza%20RW/" class="btn btn-neutral float-right" title="Calibración de varianza del proceso de caminata aleatoria">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../cuerpo/justificacion/" class="btn btn-neutral" title="Justificación"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../cuerpo/justificacion/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Calibraci%C3%B3n%20varianza%20RW/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

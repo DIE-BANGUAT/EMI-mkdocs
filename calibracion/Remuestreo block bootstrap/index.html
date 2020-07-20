@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Remuestreo con block bootstrap - EMI</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Remuestreo con block bootstrap";
+    var mkdocs_page_input_path = "calibracion\\Remuestreo block bootstrap.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/matlab.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> EMI</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Principal</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../cuerpo/introduccion/">Introducción</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../cuerpo/justificacion/">Justificación</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Calibración</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../Determinaci%C3%B3n%20proceso%20caminata%20aleatoria/">Determinación del proceso de caminata aleatoria</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Calibraci%C3%B3n%20varianza%20RW/">Calibración de varianza del proceso de caminata aleatoria</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Selecci%C3%B3n%20simulaciones/">Selección del número de simulaciones</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Determinaci%C3%B3n%20medida%20evaluaci%C3%B3n/">Selección de la medida de evaluación</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Remuestreo con block bootstrap</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#posible-solucion-o-analisis-de-sensibilidad-a-considerar">Posible solución o análisis de sensibilidad a considerar</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#block-bootstrap">Block bootstrap</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#nonoverlapping-block-bootstrap-nbb">Nonoverlapping Block Bootstrap (NBB)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#propuesta-para-el-analisis-de-sensibilidad">Propuesta para el análisis de sensibilidad</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">EMI</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Calibración &raquo;</li>
+        
+      
+    
+    <li>Remuestreo con block bootstrap</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="propuesta-adicional-para-evaluacion-con-block-bootstrap">Propuesta adicional para evaluación con <strong>block bootstrap</strong><a class="headerlink" href="#propuesta-adicional-para-evaluacion-con-block-bootstrap" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Anteriormente, se ha criticado que el proceso de muestreo del experimento puede violar la autocorrelación en las series de tiempo de variaciones intermensuales de los índices de precios de los gastos básicos.</li>
+<li>Esto debido a que se <em>desarma</em> la serie de tiempo y se combina una nueva serie de tiempo de variaciones intermensuales utilizando un criterio de estacionalidad, es decir, conservando las variaciones intermensuales observadas en los mismos meses de ocurrencia, aunque puedan repetirse en diferentes años.</li>
+<li>Este procedimiento ayuda eficazmente a reducir la varianza del experimento, ya que solo se permiten ciertas variaciones intermensuales en cada mes. </li>
+</ul>
+<h3 id="posible-solucion-o-analisis-de-sensibilidad-a-considerar">Posible solución o análisis de sensibilidad a considerar<a class="headerlink" href="#posible-solucion-o-analisis-de-sensibilidad-a-considerar" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Un investigador de República Dominicana, durante la reunión de investigadores de bancos centrales, expuso que una forma de controlar este efecto es el de utilizar una variante de <em>bootstrap</em> denominada <em>block bootstrap</em>, que se utiliza, bajos ciertos supuestos, para realizar remuestreos cuando la muestra no es iid (independiente e idénticamente distribuida), como en el caso de datos series de tiempo. </p>
+</li>
+<li>
+<p>En particular, si la serie de tiempo es estacionaria y se asume una <strong>dependencia débil en covarianza</strong>, entonces, las observaciones pierden dependencia de sus rezagos eventualmente (el proceso es dependiente solamentede sus primeros rezagos). </p>
+</li>
+<li>Este hecho se aprovecha para generar el procedimiento de <em>block bootsrap</em>.</li>
+</ul>
+<h3 id="block-bootstrap"><em>Block bootstrap</em><a class="headerlink" href="#block-bootstrap" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Existen diferentes variantes: NBB (<em>Nonoverlapping block bootstrap</em>), MBB (<em>Moving block bootstrap</em>), CBB (<em>Circular block bootstrap</em>), SB (<em>Stationary block bootstrap</em>). </p>
+</li>
+<li>
+<p>La idea de todos estos procedimientos es mantener la relación muestra-distribución que se tiene en el <em>bootstrap clásico</em> (iid), ante dependencia en los datos.</p>
+</li>
+<li>
+<p>Existe toda una literatura al respecto, sobre la adecuación y aplicación de cada método en la práctica.</p>
+</li>
+</ul>
+<h3 id="nonoverlapping-block-bootstrap-nbb"><em>Nonoverlapping Block Bootstrap (NBB)</em><a class="headerlink" href="#nonoverlapping-block-bootstrap-nbb" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Se asume estacionariedad y dependencia débil en covarianza de la secuencia de variables aleatorias.</li>
+<li>Se puede dividir la muestra de <span><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span> observaciones en la unión de <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> bloques consecutivos o series más pequeñas de largo <span><span class="MathJax_Preview">l</span><script type="math/tex">l</script></span>. </li>
+<li>
+<p>El muestreo de bootstrap se obtiene al muestrear aleatoriamente <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> bloques aleatoriamente y concatenar las observaciones. </p>
+</li>
+<li>
+<p>El principio de <em>bootstrap</em> se mantiene, aunque ligeramente diferente:</p>
+</li>
+<li>Debido a la estacionariedad y dependencia débil, cada bloque de largo <span><span class="MathJax_Preview">l</span><script type="math/tex">l</script></span> se distribuye idénticamente con los otros bloques. </li>
+<li>Esto genera (aproximadamente) la muestra iid al concatenar todos los bloques y recrea el principio de bootstrap.</li>
+</ul>
+<h3 id="propuesta-para-el-analisis-de-sensibilidad">Propuesta para el análisis de sensibilidad<a class="headerlink" href="#propuesta-para-el-analisis-de-sensibilidad" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Generar un conjunto de resultados que tome en cuenta un procedimiento de <em>block bootstrap</em> y ver cuánto cambian los resultados.</p>
+</li>
+<li>
+<p>En este caso, el parámetro poblacional se debería de construir con el promedio de cada uno de los bloques.</p>
+</li>
+<li>
+<p>Habría que experimentar cómo obtenerlo de tal forma que en muchas muestras, el estimador muestral sea insesgado. </p>
+</li>
+<li>
+<p>Experimentar con el tamaño del bloque. </p>
+</li>
+<li>
+<p>Se plantea esta propuesta para darle <strong>robustez al procedimiento estadístico de simulación</strong>, ya que en dos ocasiones se ha hecho mención del problema en el muestreo de los gastos básicos con el criterio de estacionalidad.</p>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../Determinaci%C3%B3n%20medida%20evaluaci%C3%B3n/" class="btn btn-neutral" title="Selección de la medida de evaluación"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../Determinaci%C3%B3n%20medida%20evaluaci%C3%B3n/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

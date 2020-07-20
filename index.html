@@ -5,11 +5,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta name="description" content="None">
   
   
   <link rel="shortcut icon" href="img/favicon.ico">
-  <title>Home - EMI</title>
+  <title>EMI</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="css/theme.css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Home";
+    var mkdocs_page_name = "Evaluaci\u00f3n de medidas de inflaci\u00f3n (EMI) de Guatemala";
     var mkdocs_page_input_path = "index.md";
     var mkdocs_page_url = null;
   </script>
@@ -26,6 +26,8 @@
   <script src="js/jquery-2.1.1.min.js" defer></script>
   <script src="js/modernizr-2.8.3.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/matlab.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -48,23 +50,23 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <p class="caption"><span class="caption-text">Principal</span></p>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#project-layout">Project layout</a>
-    </li>
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="cuerpo/introduccion/">Introducción</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="about/">About</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="Calibraci%C3%B3n%20varianza%20RW/">Calibración</a>
+                    <li class="toctree-l1"><a class="reference internal" href="cuerpo/justificacion/">Justificación</a>
                     </li>
                 </ul>
-                <p class="caption"><span class="caption-text">Otros</span></p>
+                <p class="caption"><span class="caption-text">Calibración</span></p>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="newpage/">Nueva página</a>
+                    <li class="toctree-l1"><a class="reference internal" href="calibracion/Determinaci%C3%B3n%20proceso%20caminata%20aleatoria/">Determinación del proceso de caminata aleatoria</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="calibracion/Calibraci%C3%B3n%20varianza%20RW/">Calibración de varianza del proceso de caminata aleatoria</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="calibracion/Selecci%C3%B3n%20simulaciones/">Selección del número de simulaciones</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="calibracion/Determinaci%C3%B3n%20medida%20evaluaci%C3%B3n/">Selección de la medida de evaluación</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="calibracion/Remuestreo%20block%20bootstrap/">Remuestreo con block bootstrap</a>
                     </li>
                 </ul>
       </div>
@@ -87,12 +89,8 @@
     <li><a href=".">Docs</a> &raquo;</li>
     
       
-        
-          <li>Principal &raquo;</li>
-        
-      
     
-    <li>Home</li>
+    <li>Evaluación de medidas de inflación (EMI) de Guatemala</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -103,57 +101,16 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="evaluacion-de-medidas-de-inflacion-de-guatemala">Evaluación de medidas de inflación de Guatemala</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<div>
-<div class="MathJax_Preview"> a = b+c </div>
-<script type="math/tex; mode=display"> a = b+c </script>
-</div>
-<p>An so, <span><span class="MathJax_Preview">A = \pi r^2</span><script type="math/tex">A = \pi r^2</script></span>.</p>
-<p>When <span><span class="MathJax_Preview">a \ne 0</span><script type="math/tex">a \ne 0</script></span>, there are two solutions to <span><span class="MathJax_Preview"> ax^2 + bx + c = 0 </span><script type="math/tex"> ax^2 + bx + c = 0 </script></span> and they are
-$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$</p>
-<p>Also:  </p>
-<div>
-<div class="MathJax_Preview">\displaystyle \prod_{j=0}^{\infty}\frac{1}{(1-q^{5j+2})(1-q^{5j+3})}</div>
-<script type="math/tex; mode=display">\displaystyle \prod_{j=0}^{\infty}\frac{1}{(1-q^{5j+2})(1-q^{5j+3})}</script>
-</div>
-<p>Se codifica en la variable <code>a</code>, entonces:  </p>
-<div class="codehilite"><pre><span></span><code><span class="c">% factorial: esta funcion</span>
-<span class="c">%</span>
-<span class="k">function</span><span class="w"> </span>nf <span class="p">=</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span>n<span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span>
-        <span class="n">return</span> <span class="s">1</span><span class="p">;</span>
-    <span class="n">else</span>
-        <span class="s">return</span> <span class="s">n*factorial(n-1)</span><span class="p">;</span>
-    <span class="n">end</span>
-<span class="s">end</span>
-</code></pre></div>
-
-
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<div class="codehilite"><pre><span></span><code><span class="err">mkdocs.yml    # The configuration file.</span>
-<span class="err">docs/</span>
-<span class="err">    index.md  # The documentation homepage.</span>
-<span class="err">    ...       # Other markdown pages, images and other files.</span>
-</code></pre></div>
+                <h2 id="evaluacion-de-medidas-de-inflacion-emi-de-guatemala">Evaluación de medidas de inflación (EMI) de Guatemala<a class="headerlink" href="#evaluacion-de-medidas-de-inflacion-emi-de-guatemala" title="Permanent link">&para;</a></h2>
+<p>En este repositorio se encuentra publicada la documentación respecto al proyecto de evaluación de medidas de inflación (EMI), el cual consiste en evaluar a través de simulación, la eficiencia de diferentes procedimientos o métodos que resulten en una medida de ritmo inflacionario interanual, desde un punto de vista de estas medidas como estimadores muestrales de la inflación generalizada no observable.</p>
+<p>Este trabajo se ha desarrollado desde el año 2017 con la colaboración de Juan Carlos Castañeda, Oscar Solís y Rodrigo Chang, miembros del Departamento de Investigaciones Económicas del Banco de Guatemala. El contenido de este trabajo de investigación es responsabilidad exclusiva de sus autores y no necesariamente representa la postura institucional del Banco de Guatemala. </p>
+<p><a href="http://commonmark.org"><img alt="made-with-Markdown" src="https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg" /></a>
+<a href="https://www.latex-project.org/"><img alt="made-with-latex" src="https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg" /></a>
+<a href="https://www.mathjax.org/"><img alt="made-with-mathjax" src="https://img.shields.io/badge/Made%20with-MathJax-1f425f.svg" /></a></p>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-    </div>
   
 
   <hr/>
@@ -178,8 +135,6 @@ $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$</p>
       
       
       
-        <span style="margin-left: 15px"><a href="about/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
     </span>
 </div>
     <script>var base_url = '.';</script>
@@ -194,3 +149,8 @@ $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$</p>
 
 </body>
 </html>
+
+<!--
+MkDocs version : 1.1.2
+Build Date UTC : 2020-07-20 20:01:55.366354+00:00
+-->

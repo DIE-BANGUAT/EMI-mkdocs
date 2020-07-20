@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Selección de la medida de evaluación - EMI</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Selecci\u00f3n de la medida de evaluaci\u00f3n";
+    var mkdocs_page_input_path = "calibracion\\Determinaci\u00f3n medida evaluaci\u00f3n.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/matlab.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> EMI</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Principal</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../cuerpo/introduccion/">Introducción</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../cuerpo/justificacion/">Justificación</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Calibración</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../Determinaci%C3%B3n%20proceso%20caminata%20aleatoria/">Determinación del proceso de caminata aleatoria</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Calibraci%C3%B3n%20varianza%20RW/">Calibración de varianza del proceso de caminata aleatoria</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Selecci%C3%B3n%20simulaciones/">Selección del número de simulaciones</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Selección de la medida de evaluación</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#indice-de-error-muestral-en-la-medida-de-evaluacion">Índice de error muestral en la medida de evaluación</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ventajas-y-desventajas">Ventajas y desventajas</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#otra-posibilidad-utilizar-el-mse-directamente">Otra posibilidad: utilizar el MSE directamente</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#utilizar-el-mse-directamente">Utilizar el MSE directamente</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#efecto-de-valores-atipicos">Efecto de valores atípicos</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#implicaciones-para-el-proceso-de-simulacion">Implicaciones para el proceso de simulación</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#propuesta-para-la-medida-de-evaluacion">Propuesta para la medida de evaluación</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Remuestreo%20block%20bootstrap/">Remuestreo con block bootstrap</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">EMI</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Calibración &raquo;</li>
+        
+      
+    
+    <li>Selección de la medida de evaluación</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="determinacion-de-la-medida-de-evaluacion">Determinación de la medida de evaluación<a class="headerlink" href="#determinacion-de-la-medida-de-evaluacion" title="Permanent link">&para;</a></h2>
+<ul>
+<li>A continuación, se exponen diferentes propuestas para el puntaje final de evaluación de las medidas de inflación. </li>
+</ul>
+<h3 id="indice-de-error-muestral-en-la-medida-de-evaluacion">Índice de error muestral en la medida de evaluación<a class="headerlink" href="#indice-de-error-muestral-en-la-medida-de-evaluacion" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Se considera el siguiente índice final de evaluación: 
+$$ \text{IEM}_j = \overline{\text{RMSE}}_j + |\overline{\text{ME}}_j| + (1- \bar{\rho}_j)$$</li>
+<li>En donde: </li>
+<li><span><span class="MathJax_Preview">\text{IEM}_j</span><script type="math/tex">\text{IEM}_j</script></span> es el índice de error muestral de la medida de inflación <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span>.</li>
+<li><span><span class="MathJax_Preview">\overline{\text{RMSE}}_j</span><script type="math/tex">\overline{\text{RMSE}}_j</script></span> es el promedio en el muestreo del RMSE de evaluación de la medida de inflación <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> (respecto al parámetro poblacional).</li>
+<li><span><span class="MathJax_Preview">|\overline{\text{ME}}_j|</span><script type="math/tex">|\overline{\text{ME}}_j|</script></span> es el valor absoluto del promedio en el muestreo del error medio de evaluación de la medida de inflación <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> (respecto al parámetro poblacional).</li>
+<li><span><span class="MathJax_Preview">\bar{\rho}_j</span><script type="math/tex">\bar{\rho}_j</script></span> es el promedio en el muestreo del coeficiente de correlación lineal de la medida de inflación <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> con el parámetro poblacional.</li>
+</ul>
+<h3 id="ventajas-y-desventajas">Ventajas y desventajas<a class="headerlink" href="#ventajas-y-desventajas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Es un punteo aditivo simple, mientras más pequeño su valor, mejor.</li>
+<li>Sin embargo, aunque el <span><span class="MathJax_Preview">\overline{\text{RMSE}}_j</span><script type="math/tex">\overline{\text{RMSE}}_j</script></span> y el <span><span class="MathJax_Preview">|\overline{\text{ME}}_j|</span><script type="math/tex">|\overline{\text{ME}}_j|</script></span> están en una escala similar (puntos porcentuales), el término de correlación no tiene unidades y podría no variar en la misma proporción que los otros.</li>
+<li>Una opción, podría ser generar un punteo dependiente y multiplicativo, por ejemplo <span><span class="MathJax_Preview">\text{IEM}_j = \overline{\text{RMSE}}_j * |\overline{\text{ME}}_j| * (1 - \bar{\rho}_j)</span><script type="math/tex">\text{IEM}_j = \overline{\text{RMSE}}_j * |\overline{\text{ME}}_j| * (1 - \bar{\rho}_j)</script></span></li>
+<li>Podrían agregarse coeficientes de ponderación, pero nuevamente, serían subjetivos. </li>
+</ul>
+<h3 id="otra-posibilidad-utilizar-el-mse-directamente">Otra posibilidad: utilizar el MSE directamente<a class="headerlink" href="#otra-posibilidad-utilizar-el-mse-directamente" title="Permanent link">&para;</a></h3>
+<ul>
+<li>El MSE de un estimador se puede descomponer en una medida de varianza y sesgo: 
+$$ \text{MSE}(\hat{\theta}) = \text{E}\left[ (\hat{\theta}-\theta)^2 \right] = \text{Var}(\hat{\theta}) + \text{Sesgo}^2(\hat{\theta}, \theta) $$</li>
+<li>Véase Casella y Berger (2002, pág. 330) para una derivación de este resultado.</li>
+<li>
+<p>Casella y Berger indican (ibíd.) que es una medida razonable para el desempeño de un estimador puntual y tiene la ventaja de interpretarse como la combinación de varianza y sesgo descrita arriba.</p>
+</li>
+<li>
+<p>Adicionalmente, esto se puede expresar como (ver documento anexo FMI): 
+$$ \text{MSE}(\hat{\theta}) = \text{Sesgo}^2(\hat{\theta}, \theta) + (s_\theta - s_{\hat{\theta}})^2 + 2(1-r) s_\theta s_{\hat{\theta}} $$ </p>
+</li>
+<li>
+<p>en donde: </p>
+<ul>
+<li><span><span class="MathJax_Preview">s_\theta</span><script type="math/tex">s_\theta</script></span> es el error estándar del parámetro (a través del tiempo). </li>
+<li><span><span class="MathJax_Preview">s_{\hat{\theta}}</span><script type="math/tex">s_{\hat{\theta}}</script></span> es el error estándar del estimador (a través del tiempo).</li>
+<li><span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> representa el coeficiente de correlación muestral entre parámetro y estimador.  </li>
+</ul>
+</li>
+<li>
+<p>Esto significa que el MSE representa una medida completa de eficiencia de un estimador, que relaciona la variabilidad, el sesgo y la correlación entre parámetro y estimador. </p>
+</li>
+</ul>
+<h4 id="utilizar-el-mse-directamente">Utilizar el MSE directamente<a class="headerlink" href="#utilizar-el-mse-directamente" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>En la literatura se menciona que estimadores sesgados pueden presentar valores bajos de MSE.</p>
+</li>
+<li>
+<p>Casella y Berger, 2002, pág. 331</p>
+<blockquote>
+<p><em>Although many unbiased estimators are also reasonable from the standpoint of MSE, be aware that controlling bias does not guarantee that MSE is controlled. In particular, it is sometimes the case that a trade-off occurs between variance and bias in such a way that a small increase in bias can be traded for a larger decrease in variance, resulting in an improvement in MSE</em>.</p>
+</blockquote>
+</li>
+<li>
+<p>Posteriormente, se presenta un ejemplo en donde el estimador de varianza insesgado (el que divide por <span><span class="MathJax_Preview">n-1</span><script type="math/tex">n-1</script></span>) posee mayor MSE que el estimador sesgado de máxima verosimilitud (el que divide por <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>).</p>
+</li>
+</ul>
+<h4 id="efecto-de-valores-atipicos">Efecto de valores atípicos<a class="headerlink" href="#efecto-de-valores-atipicos" title="Permanent link">&para;</a></h4>
+<ul>
+<li>En la literatura también se menciona que el MSE puede verse afectado por <em>outliers</em>.</li>
+<li>Véase Walther y Moore (2005):  </li>
+</ul>
+<blockquote>
+<p><em>Since both MSE and RMSE are calculated using squared differences, they tend to be dominated by outlying estimates far away from the true value</em>.</p>
+</blockquote>
+<ul>
+<li>En este mismo documento se menciona que para evitar el problema de <em>outliers</em>, se puede utilizar el valor absoluto de las diferencias (MAE) como una medida de precisión.</li>
+</ul>
+<h4 id="implicaciones-para-el-proceso-de-simulacion">Implicaciones para el proceso de simulación<a class="headerlink" href="#implicaciones-para-el-proceso-de-simulacion" title="Permanent link">&para;</a></h4>
+<ul>
+<li>En Casella y Berger, 2002, pág. 332:  </li>
+</ul>
+<blockquote>
+<p>In general, since MSE is a function of the parameter, there will be not one "best" estimator". Often, the MSEs of two estimators will cross each other, showing that each estimator is better (with respect to the other) in only a portion of the parameter space. However, even this partial information can sometimes provide guidelines for choosing between estimators.</p>
+</blockquote>
+<ul>
+<li>Si utilizamos el MSE para comparar, en general vamos a tener que realizar más simulaciones, ya que la distribución de esta medida de error es la más <strong>volátil</strong> (por el castigo cuadrático que pone a las desviaciones respecto al parámetro poblacional).</li>
+</ul>
+<h3 id="propuesta-para-la-medida-de-evaluacion">Propuesta para la medida de evaluación<a class="headerlink" href="#propuesta-para-la-medida-de-evaluacion" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Se propone considerar el siguiente índice final de evaluación:  </li>
+</ul>
+<div>
+<div class="MathJax_Preview"> \text{IEM}_j = \overline{\text{MAE}}_j + |\overline{\text{ME}}_j| + (1- \bar{\rho}_j)</div>
+<script type="math/tex; mode=display"> \text{IEM}_j = \overline{\text{MAE}}_j + |\overline{\text{ME}}_j| + (1- \bar{\rho}_j)</script>
+</div>
+<ul>
+<li>Al final, es un índice final con una interpretación sencilla.  </li>
+<li>Se considera el <span><span class="MathJax_Preview">\overline{\text{MAE}}_j</span><script type="math/tex">\overline{\text{MAE}}_j</script></span> en lugar del <span><span class="MathJax_Preview">\overline{\text{RMSE}}_j</span><script type="math/tex">\overline{\text{RMSE}}_j</script></span> debido a que también es un indicador de eficiencia, que no se tiende a sesgar ante el efecto de <em>outliers</em> (Véase Walther y Moore (2005)).  </li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Remuestreo%20block%20bootstrap/" class="btn btn-neutral float-right" title="Remuestreo con block bootstrap">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Selecci%C3%B3n%20simulaciones/" class="btn btn-neutral" title="Selección del número de simulaciones"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../Selecci%C3%B3n%20simulaciones/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Remuestreo%20block%20bootstrap/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
