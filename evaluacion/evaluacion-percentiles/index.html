@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Evaluación de las medidas basadas en percentiles - EMI</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Evaluaci\u00f3n de las medidas basadas en percentiles";
+    var mkdocs_page_input_path = "evaluacion\\evaluacion-percentiles.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/matlab.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> EMI</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">EMI</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Evaluación de medidas de inflación (EMI) de Guatemala</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Principal</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../cuerpo/introduccion/">Introducción</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../cuerpo/justificacion/">Justificación</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Calibración</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../calibracion/Determinaci%C3%B3n%20proceso%20caminata%20aleatoria/">Determinación del proceso de caminata aleatoria</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../calibracion/Calibraci%C3%B3n%20varianza%20RW/">Calibración de varianza del proceso de caminata aleatoria</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../calibracion/Selecci%C3%B3n%20simulaciones/">Selección del número de simulaciones</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../calibracion/Determinaci%C3%B3n%20medida%20evaluaci%C3%B3n/">Selección de la medida de evaluación</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../calibracion/Remuestreo%20block%20bootstrap/">Remuestreo con block bootstrap</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Evaluación</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Evaluación de las medidas basadas en percentiles</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#analisis-de-sensibilidad-ante-cambios-en-el-periodo-final-de-evaluacion">Análisis de sensibilidad ante cambios en el período final de evaluación</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#analisis-de-sensibilidad-ante-cambios-en-el-numero-de-simulaciones">Análisis de sensibilidad ante cambios en el número de simulaciones</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#analisis-de-sensibilidad-ante-cambios-en-el-muestreo">Análisis de sensibilidad ante cambios en el muestreo</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">EMI</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Evaluación &raquo;</li>
+        
+      
+    
+    <li>Evaluación de las medidas basadas en percentiles</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/DIE-BANGUAT/EMI-mkdocs/edit/master/docs/evaluacion/evaluacion-percentiles.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="evaluacion-de-medidas-de-inflacion-basadas-en-percentiles">Evaluación de medidas de inflación basadas en percentiles<a class="headerlink" href="#evaluacion-de-medidas-de-inflacion-basadas-en-percentiles" title="Permanent link">&para;</a></h2>
+<p>En esta sección se documentan los resultados del proceso de evaluación de las medidas de inflación interanual basadas en percentiles de la distribución transversal de variaciones intermensuales de índices de precios.</p>
+<p>Aplicando el procedimiento de evaluación con los criterios de evaluación definidos con el período de evaluación hasta <strong>diciembre de 2019</strong>, se lleva a cabo la simulación de 110,000 realizaciones para cada una de las medidas de inflación interanual que utilizan como base los percentiles 50 a 80 de la distribución de variaciones intermensuales en cada mes. En cada caso, se consideran las versiones equiponderadas y ponderadas de las medidas de inflación. Los resultados son los siguientes:  </p>
+<p><img alt="Evaluacion percentiles agosto 2020" src="../images/evaluacion-percentiles_2020-08-08_000753.png" />  </p>
+<p>Esta gráfica relaciona el MSE de evaluación con el número de percentil utilizado para la construcción de la medida de inflación, al utilizar la distribución equiponderada, así como la distribución ponderada, de las variaciones intermensuales de cada mes. Como se observa, el mínimo valor de MSE para los percentiles equiponderados se presenta en el <strong>Percentil equiponderado 72</strong>, mientras que el valor mínimo de MSE en los percentiles ponderados se presenta en el <strong>Percentil ponderado 69</strong>.</p>
+<p>A continuación, se presentan algunos análisis de sensibilidad respecto a este escenario.****</p>
+<h3 id="analisis-de-sensibilidad-ante-cambios-en-el-periodo-final-de-evaluacion">Análisis de sensibilidad ante cambios en el período final de evaluación<a class="headerlink" href="#analisis-de-sensibilidad-ante-cambios-en-el-periodo-final-de-evaluacion" title="Permanent link">&para;</a></h3>
+<p>Debido a que se considera el período completo de evaluación hasta diciembre de 2019, se realiza un análisis de sensibilidad que considera los resultados ante un cambio en el período final de evaluación. Se consideran los siguientes períodos finales de evaluación: </p>
+<ul>
+<li>Diciembre de 2018</li>
+<li>Junio de 2019</li>
+<li>Junio de 2020</li>
+</ul>
+<p>Los resultados se muestran en la gráfica que se muestra a continuación.  </p>
+<p><img alt="Evaluacion percentiles análisis sensibilidad períodos" src="../images/evaluacion-percentiles_2020-08-08_001736.png" />  </p>
+<p>Como se puede observar, en los 4 períodos finales, el percentil equiponderado que resulta óptimo sigue siendo invariantemente el <strong>percentil equiponderado 72</strong>. Respecto a los percentiles ponderados, se observa que para los períodos de diciembre de 2018, diciembre de 2019 y junio de 2020, el percentil óptimo es el <strong>percentil ponderado 69</strong>, mientras que en junio de 2019 se registra una ligera variación, siendo el percentil óptimo el <strong>percentil ponderado 70</strong>. </p>
+<p>Estos resultados muestran que el percentil óptimo no es tan sensible a cambios en los períodos finales de evaluación que están separados entre 6 meses y un año.  </p>
+<h3 id="analisis-de-sensibilidad-ante-cambios-en-el-numero-de-simulaciones">Análisis de sensibilidad ante cambios en el número de simulaciones<a class="headerlink" href="#analisis-de-sensibilidad-ante-cambios-en-el-numero-de-simulaciones" title="Permanent link">&para;</a></h3>
+<p>En este caso, se realiza una prueba de sensibilidad cambiando el número de simulaciones. Al mantener <span><span class="MathJax_Preview">\gamma=0.95</span><script type="math/tex">\gamma=0.95</script></span>, <span><span class="MathJax_Preview">\sigma=236.22</span><script type="math/tex">\sigma=236.22</script></span> y cambiar <span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> de un valor de <span><span class="MathJax_Preview">0.05\bar{Z}</span><script type="math/tex">0.05\bar{Z}</script></span> a un <span><span class="MathJax_Preview">0.025\bar{Z}</span><script type="math/tex">0.025\bar{Z}</script></span> en el MSE de la medida de inflación total, se obtiene un número de simulaciones de 411,810. Este número de simulaciones es superior al que se obtendría dejando <span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> constante y cambiando de <span><span class="MathJax_Preview">\gamma=0.95</span><script type="math/tex">\gamma=0.95</script></span> a <span><span class="MathJax_Preview">\gamma=0.99</span><script type="math/tex">\gamma=0.99</script></span>, el cual resulta en 177,817. </p>
+<p>Por lo tanto, se corre una evaluación con 420,000 realizaciones y se compara con el escenario base de 110,000 realizaciones. Como se muestra en la gráfica siguiente, los resultados coinciden sin mayor variabilidad. Esto se debe a que el número inicial de simulaciones es en realidad más que suficiente para la distribución del MSE de los estimadores muestrales basados en percentiles (en realidad, con alrededor de 10,000 simulaciones se tenía errores estándar de simulación muy pequeños).  </p>
+<p><img alt="Evaluacion percentiles análisis sensibilidad simulaciones" src="../images/evaluacion-percentiles_2020-08-08_002802.png" />  </p>
+<h3 id="analisis-de-sensibilidad-ante-cambios-en-el-muestreo">Análisis de sensibilidad ante cambios en el muestreo<a class="headerlink" href="#analisis-de-sensibilidad-ante-cambios-en-el-muestreo" title="Permanent link">&para;</a></h3>
+<p>Se realiza una prueba de sensibilidad utilizando como técnica de remuestreo <em>block bootstrap</em> con bloques de 12 meses. El muestreo se realiza de forma independiente para cada unos de los gastos básicos en cada una de las bases del IPC. A continuación, se muestran los resultados en la gráfica siguiente.  </p>
+<p><img alt="Evaluacion percentiles análisis sensibilidad simulaciones" src="../images/evaluacion-percentiles_2020-08-08_022130.png" />  </p>
+<p>Como se puede observar, utilizando una variante de muestreo de <em>bootstrap</em>, el <strong>percentil equiponderado 72</strong> y el <strong>percentil ponderado 69</strong> resultan ser nuevamente los estimadores muestrales que minimizan el MSE de evaluación en el período completo, con resultados hasta el período de diciembre de 2019.  </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../../calibracion/Remuestreo%20block%20bootstrap/" class="btn btn-neutral" title="Remuestreo con block bootstrap"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/DIE-BANGUAT/EMI-mkdocs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../calibracion/Remuestreo%20block%20bootstrap/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../js/extra.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
