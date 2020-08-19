@@ -63,8 +63,6 @@
                 </ul>
                 <p class="caption"><span class="caption-text">Calibración</span></p>
                 <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../Determinaci%C3%B3n%20proceso%20caminata%20aleatoria/">Determinación del proceso de caminata aleatoria</a>
-                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="../Calibraci%C3%B3n%20varianza%20RW/">Calibración de varianza del proceso de caminata aleatoria</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../Selecci%C3%B3n%20simulaciones/">Selección del número de simulaciones</a>
@@ -84,8 +82,6 @@
     <li class="toctree-l3"><a class="reference internal" href="#implicaciones-para-el-proceso-de-simulacion">Implicaciones para el proceso de simulación</a>
     </li>
         </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#propuesta-para-la-medida-de-evaluacion">Propuesta para la medida de evaluación</a>
     </li>
     </ul>
                     </li>
@@ -168,7 +164,8 @@ $$ \text{MSE}(\hat{\theta}) = \text{E}\left[ (\hat{\theta}-\theta)^2 \right] = \
 <p>Casella y Berger indican (ibíd.) que es una medida razonable para el desempeño de un estimador puntual y tiene la ventaja de interpretarse como la combinación de varianza y sesgo descrita arriba.</p>
 </li>
 <li>
-<p>Adicionalmente, esto se puede expresar como (ver documento anexo FMI): 
+<p>Adicionalmente, esto se puede expresar como 
+<!-- - (ver documento anexo FMI):  -->
 $$ \text{MSE}(\hat{\theta}) = \text{Sesgo}^2(\hat{\theta}, \theta) + (s_\theta - s_{\hat{\theta}})^2 + 2(1-r) s_\theta s_{\hat{\theta}} $$ </p>
 </li>
 <li>
@@ -217,20 +214,16 @@ $$ \text{MSE}(\hat{\theta}) = \text{Sesgo}^2(\hat{\theta}, \theta) + (s_\theta -
 <p>In general, since MSE is a function of the parameter, there will be not one "best" estimator". Often, the MSEs of two estimators will cross each other, showing that each estimator is better (with respect to the other) in only a portion of the parameter space. However, even this partial information can sometimes provide guidelines for choosing between estimators.</p>
 </blockquote>
 <ul>
-<li>Si utilizamos el MSE para comparar, en general vamos a tener que realizar más simulaciones, ya que la distribución de esta medida de error es la más <strong>volátil</strong> (por el castigo cuadrático que pone a las desviaciones respecto al parámetro poblacional).</li>
+<li>Al utilizar el MSE para comparar el desempeño de las medidas de inflación, en general, se tienen que realizar más simulaciones que con un estadístico como el error absoluto medio, ya que la distribución de esta medida de error es la más <strong>volátil</strong> (por el castigo cuadrático que pone a las desviaciones respecto al parámetro poblacional).</li>
 </ul>
-<h3 id="propuesta-para-la-medida-de-evaluacion">Propuesta para la medida de evaluación<a class="headerlink" href="#propuesta-para-la-medida-de-evaluacion" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Se propone considerar el siguiente índice final de evaluación:  </li>
-</ul>
-<div>
-<div class="MathJax_Preview"> \text{IEM}_j = \overline{\text{MAE}}_j + |\overline{\text{ME}}_j| + (1- \bar{\rho}_j)</div>
-<script type="math/tex; mode=display"> \text{IEM}_j = \overline{\text{MAE}}_j + |\overline{\text{ME}}_j| + (1- \bar{\rho}_j)</script>
-</div>
-<ul>
-<li>Al final, es un índice final con una interpretación sencilla.  </li>
-<li>Se considera el <span><span class="MathJax_Preview">\overline{\text{MAE}}_j</span><script type="math/tex">\overline{\text{MAE}}_j</script></span> en lugar del <span><span class="MathJax_Preview">\overline{\text{RMSE}}_j</span><script type="math/tex">\overline{\text{RMSE}}_j</script></span> debido a que también es un indicador de eficiencia, que no se tiende a sesgar ante el efecto de <em>outliers</em> (Véase Walther y Moore (2005)).  </li>
-</ul>
+<!-- ## Propuesta para la medida de evaluación
+
+- Se propone considerar el siguiente índice final de evaluación:  
+
+$$ \text{IEM}_j = \overline{\text{MAE}}_j + |\overline{\text{ME}}_j| + (1- \bar{\rho}_j)$$
+
+- Al final, es un índice final con una interpretación sencilla.  
+- Se considera el $\overline{\text{MAE}}_j$ en lugar del $\overline{\text{RMSE}}_j$ debido a que también es un indicador de eficiencia, que no se tiende a sesgar ante el efecto de *outliers* (Véase Walther y Moore (2005)).   -->
               
             </div>
           </div>

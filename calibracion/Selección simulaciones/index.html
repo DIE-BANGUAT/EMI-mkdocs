@@ -63,8 +63,6 @@
                 </ul>
                 <p class="caption"><span class="caption-text">Calibración</span></p>
                 <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../Determinaci%C3%B3n%20proceso%20caminata%20aleatoria/">Determinación del proceso de caminata aleatoria</a>
-                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="../Calibraci%C3%B3n%20varianza%20RW/">Calibración de varianza del proceso de caminata aleatoria</a>
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Selección del número de simulaciones</a>
@@ -77,29 +75,15 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#chernick-2da-ed">Chernick, (2da. ed.)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#degroot-y-schervish-4ta-ed-version-con-estimador-normal">DeGroot y Schervish (4ta ed.) versión con estimador normal</a>
+    <li class="toctree-l3"><a class="reference internal" href="#degroot-y-schervish-version-con-estimador-normal">DeGroot y Schervish, versión con estimador normal</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#degroot-y-schervish-4ta-ed-version-chebyshev">DeGroot y Schervish (4ta ed.) versión Chebyshev</a>
+    <li class="toctree-l3"><a class="reference internal" href="#degroot-y-schervish-version-con-el-teorema-de-chebyshev">DeGroot y Schervish, versión con el teorema de Chebyshev</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#numero-de-simulaciones-con-diferentes-estadisticos">Número de simulaciones con diferentes estadísticos</a>
+    <li class="toctree-l2"><a class="reference internal" href="#propuesta-para-definir-el-numero-de-simulaciones">Propuesta para definir el número de simulaciones</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#numero-de-simulaciones-rmse">Número de simulaciones RMSE</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#numero-de-simulaciones-mae">Número de simulaciones MAE</a>
-    </li>
     <li class="toctree-l3"><a class="reference internal" href="#numero-de-simulaciones-mse">Número de simulaciones MSE</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#propuesta-definitiva">Propuesta definitiva</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#numero-de-simulaciones-mae_1">Número de simulaciones MAE</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#numero-de-simulaciones-rmse_1">Número de simulaciones RMSE</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#numero-de-simulaciones-mse_1">Número de simulaciones MSE</a>
     </li>
         </ul>
     </li>
@@ -166,7 +150,7 @@
 </li>
 </ul>
 <h3 id="busqueda-en-foros-en-linea">Búsqueda en foros en línea<a class="headerlink" href="#busqueda-en-foros-en-linea" title="Permanent link">&para;</a></h3>
-<p>Consulta en foros de estadística: <a href="https://stats.stackexchange.com/questions/86040/rule-of-thumb-for-number-of-bootstrap-samples">StackExchange: Rule of thumb for number of bootstrap samples</a>. Algunos comentarios:</p>
+<p>Consulta en foros de estadística: <a href="https://stats.stackexchange.com/questions/86040/rule-of-thumb-for-number-of-bootstrap-samples">StackExchange: Rule of thumb for number of bootstrap samples</a>. Algunos comentarios mencionan algunas alternativas:</p>
 <ul>
 <li>Utilizar tantas como sean posibles, con límite en 1 millón.</li>
 <li>Correr varias veces la simulación con un número inicial considerado como suficiente y ver la variación en los estimadores de <em>bootstrap</em>. Si las estimaciones repetidas no varían mucho, el número de simulaciones es adecuado. </li>
@@ -178,10 +162,10 @@
 <p>Haciendo una revisión de los papers principales con metodología similar a la adoptada por el EMI tenemos: </p>
 </li>
 <li>
-<p>Bryan, Cecchetti y Wiggings (1997) <em>Efficient Inflation Estimation</em>: procedimiento de <em>bootstrap</em> similar. Se considera un número de simulaciones igual a 10,000 sin justificación cuantitativa. Utilizan menos categorías del IPC y del IPP.</p>
+<p>Bryan, Cecchetti y Wiggings (1997) <em>Efficient Inflation Estimation</em>: procedimiento de <em>bootstrap</em> similar. Se considera un número de simulaciones igual a 10,000 sin mecionar alguna justificación cuantitativa. Sin embargo, en su ejercicio de simulación utilizan menos categorías del IPC y del IPP.</p>
 </li>
 <li>
-<p>Roger (1997) <em>A robust measure of core inflation in New Zealand, 1949-96</em>: se evalúa un percentil óptimo para NZ sin técnicas de simulación. La evaluación se hace obteniendo el percentil de la media y tomando un promedio para diferentes períodos. </p>
+<p>Roger (1997) <em>A robust measure of core inflation in New Zealand, 1949-96</em>: se evalúa un percentil óptimo para Nueva Zelanda, pero sin técnicas de simulación. La evaluación se hace obteniendo el percentil de la media y tomando un promedio para diferentes períodos. </p>
 </li>
 </ul>
 <!-- 
@@ -211,10 +195,10 @@ Of course, this basic result is well known and has been applied for many years t
 <p>Esto da indicios de un criterio práctico (<em>ad hoc</em>) dependiendo de la aplicación y la confianza en la simulación.</p>
 </li>
 <li>
-<p>Más adelante se discuten, principalmente, algunos <strong>métodos de reducción de varianza</strong>.</p>
+<p>Más adelante en el libro se discuten, principalmente, algunos <strong>métodos de reducción de varianza</strong>, que permiten diseñar el experimento de tal forma que se limite la aleatoriedad inherente al mismo, lo cual puede reducir en sí mismo el número de simulaciones.</p>
 </li>
 </ul>
-<h4 id="degroot-y-schervish-4ta-ed-version-con-estimador-normal">DeGroot y Schervish (4ta ed.) versión con estimador normal<a class="headerlink" href="#degroot-y-schervish-4ta-ed-version-con-estimador-normal" title="Permanent link">&para;</a></h4>
+<h4 id="degroot-y-schervish-version-con-estimador-normal">DeGroot y Schervish, versión con estimador normal<a class="headerlink" href="#degroot-y-schervish-version-con-estimador-normal" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p>Se supone un estimador de Monte Carlo <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> de un parámetro <span><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>, basado en <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> simulaciones, siendo <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> un promedio (estimador de la media poblacional), entonces <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> tiene aproximadamente distribución normal con media <span><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span> y varianza <span><span class="MathJax_Preview">\sigma^2/v</span><script type="math/tex">\sigma^2/v</script></span>, en donde <span><span class="MathJax_Preview">\sigma^2</span><script type="math/tex">\sigma^2</script></span> no depende del tamaño de la simulación. Entonces, para cada <span><span class="MathJax_Preview">\epsilon &gt; 0</span><script type="math/tex">\epsilon > 0</script></span>: 
@@ -225,205 +209,107 @@ $$ Pr(|Z-\theta| \leq \epsilon) \approx 2\Phi(\epsilon v^{1/2} / \sigma) -1 $$</
 $$ v = \left[ \Phi^{-1}\left( \frac{1+\gamma}{2} \right) \frac{\hat{\sigma}}{\epsilon} \right]^2 $$</p>
 </li>
 </ul>
-<h4 id="degroot-y-schervish-4ta-ed-version-chebyshev">DeGroot y Schervish (4ta ed.) versión Chebyshev<a class="headerlink" href="#degroot-y-schervish-4ta-ed-version-chebyshev" title="Permanent link">&para;</a></h4>
+<h4 id="degroot-y-schervish-version-con-el-teorema-de-chebyshev">DeGroot y Schervish, versión con el teorema de Chebyshev<a class="headerlink" href="#degroot-y-schervish-version-con-el-teorema-de-chebyshev" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Si la aproximación normal de <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> resulta poco confiable, se puede utilizar una aproximación de Chebyshev, tal que si: 
 $$ v = \frac{\sigma^2}{\epsilon^2 (1-\gamma)} $$</li>
 <li>La desigualdad de Chebyshev garantiza que <span><span class="MathJax_Preview">Pr(|Z-\theta| \leq \epsilon) \geq \gamma</span><script type="math/tex">Pr(|Z-\theta| \leq \epsilon) \geq \gamma</script></span></li>
 <li>Este es un criterio más riguroso, pero eleva significativamente el número de simulaciones a realizar. </li>
 </ul>
-<h3 id="numero-de-simulaciones-con-diferentes-estadisticos">Número de simulaciones con diferentes estadísticos<a class="headerlink" href="#numero-de-simulaciones-con-diferentes-estadisticos" title="Permanent link">&para;</a></h3>
-<h4 id="numero-de-simulaciones-rmse">Número de simulaciones RMSE<a class="headerlink" href="#numero-de-simulaciones-rmse" title="Permanent link">&para;</a></h4>
+<!-- ## Número de simulaciones con diferentes estadísticos
+
+### Número de simulaciones RMSE
+- Utilizando el RMSE, $Z=\overline{\text{RMSE}} = 1.62$ de la variación interanual del IPC.
+
+| $\gamma$ | $\hat{\sigma}$ | $\epsilon$ | $v$ (normal) | $v$ (Chebyshev) |
+|:--------:|:--------------:|-----------:|-------------:|----------------:|
+|   0.9    |     1.582      |       0.05 |     2,708.49 |       10,010.90 |
+|   0.9    |     1.582      |       0.01 |    67,712.29 |      250,272.40 |
+|   0.95   |     1.582      |       0.05 |     3,845.64 |       20,021.79 |
+|   0.95   |     1.582      |       0.01 |    96,141.11 |      500,544.80 |
+|   0.99   |     1.582      |       0.05 |     6,642.13 |      100,108.96 |
+|   0.99   |     1.582      |       0.01 |   166,053.15 |    2,502,724.00 |
+
+
+
+### Número de simulaciones MAE
+- Utilizando el MAE, $Z=\overline{\text{MAE}} = 1.17$ de la variación interanual del IPC.
+
+| $\gamma$ | $\hat{\sigma}$ | $\epsilon$ | $v$ (normal) | $v$ (Chebyshev) |
+|:--------:|:--------------:|-----------:|-------------:|----------------:|
+|   0.9    |     0.973      |       0.05 |     1,024.57 |        3,786.92 |
+|   0.9    |     0.973      |       0.01 |    25,614.16 |       94,672.90 |
+|   0.95   |     0.973      |       0.05 |     1,454.73 |        7,573.83 |
+|   0.95   |     0.973      |       0.01 |    36,368.20 |      189,345.80 |
+|   0.99   |     0.973      |       0.05 |     2,512.58 |       37,869.16 |
+|   0.99   |     0.973      |       0.01 |    62,814.49 |      946,729.00 |
+
+
+
+### Número de simulaciones MSE
+- Utilizando el MSE, $Z=\overline{\text{MSE}} = 5.14$ de la variación interanual del IPC.
+
+| $\gamma$ | $\hat{\sigma}$ | $\epsilon$ |  $v$ (normal) | $v$ (Chebyshev) |
+|:--------:|:--------------:|-----------:|--------------:|----------------:|
+|   0.9    |     27.92      |       0.05 |    843,617.02 |    3,118,105.60 |
+|   0.9    |     27.92      |       0.01 | 21,090,425.49 |   77,952,640.00 |
+|   0.95   |     27.92      |       0.05 |  1,197,807.43 |    6,236,211.20 |
+|   0.95   |     27.92      |       0.01 | 29,945,185.65 |  155,905,280.00 |
+|   0.99   |     27.92      |       0.05 |  2,068,830.82 |   31,181,056.00 |
+|   0.99   |     27.92      |       0.01 | 51,720,770.62 |  779,526,400.00 | -->
+
+<h3 id="propuesta-para-definir-el-numero-de-simulaciones">Propuesta para definir el número de simulaciones<a class="headerlink" href="#propuesta-para-definir-el-numero-de-simulaciones" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Utilizando el RMSE, <span><span class="MathJax_Preview">Z=\overline{\text{RMSE}} = 1.62</span><script type="math/tex">Z=\overline{\text{RMSE}} = 1.62</script></span> de la variación interanual del IPC.</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center"><span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span></th>
-<th align="center"><span><span class="MathJax_Preview">\hat{\sigma}</span><script type="math/tex">\hat{\sigma}</script></span></th>
-<th align="right"><span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span></th>
-<th align="right"><span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> (normal)</th>
-<th align="right"><span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> (Chebyshev)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">0.9</td>
-<td align="center">1.582</td>
-<td align="right">0.05</td>
-<td align="right">2,708.49</td>
-<td align="right">10,010.90</td>
-</tr>
-<tr>
-<td align="center">0.9</td>
-<td align="center">1.582</td>
-<td align="right">0.01</td>
-<td align="right">67,712.29</td>
-<td align="right">250,272.40</td>
-</tr>
-<tr>
-<td align="center">0.95</td>
-<td align="center">1.582</td>
-<td align="right">0.05</td>
-<td align="right">3,845.64</td>
-<td align="right">20,021.79</td>
-</tr>
-<tr>
-<td align="center">0.95</td>
-<td align="center">1.582</td>
-<td align="right">0.01</td>
-<td align="right">96,141.11</td>
-<td align="right">500,544.80</td>
-</tr>
-<tr>
-<td align="center">0.99</td>
-<td align="center">1.582</td>
-<td align="right">0.05</td>
-<td align="right">6,642.13</td>
-<td align="right">100,108.96</td>
-</tr>
-<tr>
-<td align="center">0.99</td>
-<td align="center">1.582</td>
-<td align="right">0.01</td>
-<td align="right">166,053.15</td>
-<td align="right">2,502,724.00</td>
-</tr>
-</tbody>
-</table>
-<h4 id="numero-de-simulaciones-mae">Número de simulaciones MAE<a class="headerlink" href="#numero-de-simulaciones-mae" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Utilizando el MAE, <span><span class="MathJax_Preview">Z=\overline{\text{MAE}} = 1.17</span><script type="math/tex">Z=\overline{\text{MAE}} = 1.17</script></span> de la variación interanual del IPC.</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center"><span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span></th>
-<th align="center"><span><span class="MathJax_Preview">\hat{\sigma}</span><script type="math/tex">\hat{\sigma}</script></span></th>
-<th align="right"><span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span></th>
-<th align="right"><span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> (normal)</th>
-<th align="right"><span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> (Chebyshev)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">0.9</td>
-<td align="center">0.973</td>
-<td align="right">0.05</td>
-<td align="right">1,024.57</td>
-<td align="right">3,786.92</td>
-</tr>
-<tr>
-<td align="center">0.9</td>
-<td align="center">0.973</td>
-<td align="right">0.01</td>
-<td align="right">25,614.16</td>
-<td align="right">94,672.90</td>
-</tr>
-<tr>
-<td align="center">0.95</td>
-<td align="center">0.973</td>
-<td align="right">0.05</td>
-<td align="right">1,454.73</td>
-<td align="right">7,573.83</td>
-</tr>
-<tr>
-<td align="center">0.95</td>
-<td align="center">0.973</td>
-<td align="right">0.01</td>
-<td align="right">36,368.20</td>
-<td align="right">189,345.80</td>
-</tr>
-<tr>
-<td align="center">0.99</td>
-<td align="center">0.973</td>
-<td align="right">0.05</td>
-<td align="right">2,512.58</td>
-<td align="right">37,869.16</td>
-</tr>
-<tr>
-<td align="center">0.99</td>
-<td align="center">0.973</td>
-<td align="right">0.01</td>
-<td align="right">62,814.49</td>
-<td align="right">946,729.00</td>
-</tr>
-</tbody>
-</table>
-<h4 id="numero-de-simulaciones-mse">Número de simulaciones MSE<a class="headerlink" href="#numero-de-simulaciones-mse" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Utilizando el MSE, <span><span class="MathJax_Preview">Z=\overline{\text{MSE}} = 5.14</span><script type="math/tex">Z=\overline{\text{MSE}} = 5.14</script></span> de la variación interanual del IPC.</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center"><span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span></th>
-<th align="center"><span><span class="MathJax_Preview">\hat{\sigma}</span><script type="math/tex">\hat{\sigma}</script></span></th>
-<th align="right"><span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span></th>
-<th align="right"><span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> (normal)</th>
-<th align="right"><span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> (Chebyshev)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">0.9</td>
-<td align="center">27.92</td>
-<td align="right">0.05</td>
-<td align="right">843,617.02</td>
-<td align="right">3,118,105.60</td>
-</tr>
-<tr>
-<td align="center">0.9</td>
-<td align="center">27.92</td>
-<td align="right">0.01</td>
-<td align="right">21,090,425.49</td>
-<td align="right">77,952,640.00</td>
-</tr>
-<tr>
-<td align="center">0.95</td>
-<td align="center">27.92</td>
-<td align="right">0.05</td>
-<td align="right">1,197,807.43</td>
-<td align="right">6,236,211.20</td>
-</tr>
-<tr>
-<td align="center">0.95</td>
-<td align="center">27.92</td>
-<td align="right">0.01</td>
-<td align="right">29,945,185.65</td>
-<td align="right">155,905,280.00</td>
-</tr>
-<tr>
-<td align="center">0.99</td>
-<td align="center">27.92</td>
-<td align="right">0.05</td>
-<td align="right">2,068,830.82</td>
-<td align="right">31,181,056.00</td>
-</tr>
-<tr>
-<td align="center">0.99</td>
-<td align="center">27.92</td>
-<td align="right">0.01</td>
-<td align="right">51,720,770.62</td>
-<td align="right">779,526,400.00</td>
-</tr>
-</tbody>
-</table>
-<h3 id="propuesta-definitiva">Propuesta definitiva<a class="headerlink" href="#propuesta-definitiva" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Utilizar la aproximación normal <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> de la media del estadístico de precisión y computar <span><span class="MathJax_Preview">\epsilon = 0.01|Z|</span><script type="math/tex">\epsilon = 0.01|Z|</script></span>. Es decir, se permite una distancia del 1% del valor del estadístico <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> y el parámetro estimado.</li>
+<li>Utilizar la aproximación normal <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> de la media del estadístico de precisión y computar <span><span class="MathJax_Preview">\epsilon = 0.05|Z|</span><script type="math/tex">\epsilon = 0.05|Z|</script></span>. Es decir, se permite una distancia del 5% del valor del estadístico <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> y el parámetro estimado.</li>
 <li>Utilizar <span><span class="MathJax_Preview">\gamma = 0.95</span><script type="math/tex">\gamma = 0.95</script></span>, es decir, que la probabilidad del intervalo de confianza sea del 95%.</li>
-<li>Fijar el número de simulaciones al número requerido por la medida denominada <strong>"Variación interanual del IPC"</strong>, ya que es la que mayor varianza presenta en sus distribuciones.  </li>
-<li>En este caso, tendríamos el número de simulaciones dado por:
+<li>Fijar el número de simulaciones al número requerido por la medida de evaluación para la medida de inflación denominada <strong>"Variación interanual del IPC"</strong>, ya que es la que mayor varianza presenta en sus distribuciones.  </li>
+<li>En este caso, el número de simulaciones estaría dado por:
 $$ v = (10,000)\frac{\sigma^2}{Z^2}\left[ \Phi^{-1}\left( \frac{1+\gamma}{2} \right) \right]^2 $$</li>
 <li>Ventajas: </li>
-<li>Criterio cuantitativo bien definido, factible y no tan estricto (pero con una alta probabilidad para el intervalo de confianza). </li>
-<li>Número de simulaciones en función del coeficiente de variación (mayor dispersión relativa, más simulaciones). </li>
+<li>Criterio cuantitativo bien definido, factible y no tan estricto (pero que permite alcanzar una alta probabilidad para el intervalo de confianza). </li>
+<li>El número de simulaciones está en función del coeficiente de variación de la medida de evaluación (mayor dispersión relativa, más simulaciones). </li>
 </ul>
-<h4 id="numero-de-simulaciones-mae_1">Número de simulaciones MAE<a class="headerlink" href="#numero-de-simulaciones-mae_1" title="Permanent link">&para;</a></h4>
+<!--  Estos números corresponden a los obtenidos con los estadísticos de la variación interanual del IPC utilizando la caminata aleatoria con factor multiplicativo
+
+### Número de simulaciones MAE
+- Utilizando el MAE, $Z=1.77$ y $\epsilon=cZ$, $c \in \lbrace0.05, 0.025, 0.01\rbrace$
+
+| $\gamma$ | $\hat{\sigma}$ | $\epsilon$ |  $v$ (normal) | $v$ (Chebyshev) |
+|:|:|--:|--:|-:|
+|     0.95 |          0.973 |       0.01 | **26,567.47** |      138,319.67 |
+|     0.95 |          0.973 |       0.03 |  **4,250.79** |       22,131.15 |
+|     0.95 |          0.973 |       0.06 |  **1,062.70** |        5,532.79 |
+
+
+
+
+### Número de simulaciones RMSE
+- Utilizando el RMSE, $Z=1.62$ y $\epsilon=cZ$, $c \in \lbrace0.05, 0.025, 0.01\rbrace$
+
+| $\gamma$ | $\hat{\sigma}$ | $\epsilon$ |  $v$ (normal) | $v$ (Chebyshev) |
+|:|:|--:|--:|-:|
+|     0.95 |          1.582 |       0.08 |  **1,465.34** |        7,629.09 |
+|     0.95 |          1.582 |       0.04 |  **5,861.37** |       30,516.37 |
+|     0.95 |          1.582 |       0.02 | **36,633.56** |      190,727.33 |
+
+
+
+### Número de simulaciones MSE
+- Utilizando el MSE, $Z=5.14$ y $\epsilon=cZ$, $c \in \lbrace0.05, 0.025, 0.01\rbrace$
+
+| $\gamma$ | $\hat{\sigma}$ | $\epsilon$ |     $v$ (normal) | $v$ (Chebyshev) |
+|:|:|--:|--:|-:|
+|     0.95 |          27.92 |       0.26 |    **45,337.83** |      236,044.88 |
+|     0.95 |          27.92 |       0.13 |   **181,351.33** |      944,179.50 |
+|     0.95 |          27.92 |       0.05 | **1,133,445.84** |    5,901,121.89 |
+
+-->
+
+<h4 id="numero-de-simulaciones-mse">Número de simulaciones MSE<a class="headerlink" href="#numero-de-simulaciones-mse" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Utilizando el MAE, <span><span class="MathJax_Preview">Z=1.77</span><script type="math/tex">Z=1.77</script></span> y <span><span class="MathJax_Preview">\epsilon=cZ</span><script type="math/tex">\epsilon=cZ</script></span>, <span><span class="MathJax_Preview">c \in \lbrace0.05, 0.025, 0.01\rbrace</span><script type="math/tex">c \in \lbrace0.05, 0.025, 0.01\rbrace</script></span></li>
+<li>Utilizando el MSE de la variación interanual del IPC con la calibración de tendencia de caminata aleatoria, <span><span class="MathJax_Preview">Z=\overline{\text{MSE}} = 28.858</span><script type="math/tex">Z=\overline{\text{MSE}} = 28.858</script></span> y <span><span class="MathJax_Preview">\epsilon=cZ</span><script type="math/tex">\epsilon=cZ</script></span>, <span><span class="MathJax_Preview">c \in \lbrace0.05, 0.025, 0.01\rbrace</span><script type="math/tex">c \in \lbrace0.05, 0.025, 0.01\rbrace</script></span>. </li>
+<li>La desviación estándar en la distribución de simulación del MSE es $\hat{\sigma} =236.219 $. </li>
+<li>Por lo tanto, para los diferentes niveles de confianza <span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span> y desviación absoluta <span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> admisible tenemos: </li>
 </ul>
 <table>
 <thead>
@@ -437,101 +323,67 @@ $$ v = (10,000)\frac{\sigma^2}{Z^2}\left[ \Phi^{-1}\left( \frac{1+\gamma}{2} \ri
 </thead>
 <tbody>
 <tr>
-<td align="center">0.95</td>
-<td align="center">0.973</td>
-<td align="right">0.01</td>
-<td align="right"><strong>26,567.47</strong></td>
-<td align="right">138,319.67</td>
+<td align="center">0.90</td>
+<td align="center">236.2194</td>
+<td align="right">1.442929</td>
+<td align="right">72,509.62</td>
+<td align="right">268,003.9</td>
+</tr>
+<tr>
+<td align="center">0.90</td>
+<td align="center">236.2194</td>
+<td align="right">0.7214647</td>
+<td align="right">290,038.5</td>
+<td align="right">1,072,016</td>
+</tr>
+<tr>
+<td align="center">0.90</td>
+<td align="center">236.2194</td>
+<td align="right">0.2885859</td>
+<td align="right">1,812,740</td>
+<td align="right">6,700,097</td>
 </tr>
 <tr>
 <td align="center">0.95</td>
-<td align="center">0.973</td>
-<td align="right">0.03</td>
-<td align="right"><strong>4,250.79</strong></td>
-<td align="right">22,131.15</td>
+<td align="center">236.2194</td>
+<td align="right">1.442929</td>
+<td align="right">102,952.6</td>
+<td align="right">536,007.8</td>
 </tr>
 <tr>
 <td align="center">0.95</td>
-<td align="center">0.973</td>
-<td align="right">0.06</td>
-<td align="right"><strong>1,062.70</strong></td>
-<td align="right">5,532.79</td>
-</tr>
-</tbody>
-</table>
-<h4 id="numero-de-simulaciones-rmse_1">Número de simulaciones RMSE<a class="headerlink" href="#numero-de-simulaciones-rmse_1" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Utilizando el RMSE, <span><span class="MathJax_Preview">Z=1.62</span><script type="math/tex">Z=1.62</script></span> y <span><span class="MathJax_Preview">\epsilon=cZ</span><script type="math/tex">\epsilon=cZ</script></span>, <span><span class="MathJax_Preview">c \in \lbrace0.05, 0.025, 0.01\rbrace</span><script type="math/tex">c \in \lbrace0.05, 0.025, 0.01\rbrace</script></span></li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center"><span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span></th>
-<th align="center"><span><span class="MathJax_Preview">\hat{\sigma}</span><script type="math/tex">\hat{\sigma}</script></span></th>
-<th align="right"><span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span></th>
-<th align="right"><span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> (normal)</th>
-<th align="right"><span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> (Chebyshev)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">0.95</td>
-<td align="center">1.582</td>
-<td align="right">0.08</td>
-<td align="right"><strong>1,465.34</strong></td>
-<td align="right">7,629.09</td>
+<td align="center">236.2194</td>
+<td align="right">0.7214647</td>
+<td align="right">411,810.3</td>
+<td align="right">2,144,031</td>
 </tr>
 <tr>
 <td align="center">0.95</td>
-<td align="center">1.582</td>
-<td align="right">0.04</td>
-<td align="right"><strong>5,861.37</strong></td>
-<td align="right">30,516.37</td>
+<td align="center">236.2194</td>
+<td align="right">0.2885859</td>
+<td align="right">2,573,815</td>
+<td align="right">13,400,194.00</td>
 </tr>
 <tr>
-<td align="center">0.95</td>
-<td align="center">1.582</td>
-<td align="right">0.02</td>
-<td align="right"><strong>36,633.56</strong></td>
-<td align="right">190,727.33</td>
-</tr>
-</tbody>
-</table>
-<h4 id="numero-de-simulaciones-mse_1">Número de simulaciones MSE<a class="headerlink" href="#numero-de-simulaciones-mse_1" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Utilizando el MSE, <span><span class="MathJax_Preview">Z=5.14</span><script type="math/tex">Z=5.14</script></span> y <span><span class="MathJax_Preview">\epsilon=cZ</span><script type="math/tex">\epsilon=cZ</script></span>, <span><span class="MathJax_Preview">c \in \lbrace0.05, 0.025, 0.01\rbrace</span><script type="math/tex">c \in \lbrace0.05, 0.025, 0.01\rbrace</script></span></li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center"><span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span></th>
-<th align="center"><span><span class="MathJax_Preview">\hat{\sigma}</span><script type="math/tex">\hat{\sigma}</script></span></th>
-<th align="right"><span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span></th>
-<th align="right"><span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> (normal)</th>
-<th align="right"><span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> (Chebyshev)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">0.95</td>
-<td align="center">27.92</td>
-<td align="right">0.26</td>
-<td align="right"><strong>45,337.83</strong></td>
-<td align="right">236,044.88</td>
+<td align="center">0.99</td>
+<td align="center">236.2194</td>
+<td align="right">1.442929</td>
+<td align="right">177,817.8</td>
+<td align="right">2,680,039</td>
 </tr>
 <tr>
-<td align="center">0.95</td>
-<td align="center">27.92</td>
-<td align="right">0.13</td>
-<td align="right"><strong>181,351.33</strong></td>
-<td align="right">944,179.50</td>
+<td align="center">0.99</td>
+<td align="center">236.2194</td>
+<td align="right">0.7214647</td>
+<td align="right">711,271.2</td>
+<td align="right">10,720,155.00</td>
 </tr>
 <tr>
-<td align="center">0.95</td>
-<td align="center">27.92</td>
-<td align="right">0.05</td>
-<td align="right"><strong>1,133,445.84</strong></td>
-<td align="right">5,901,121.89</td>
+<td align="center">0.99</td>
+<td align="center">236.2194</td>
+<td align="right">0.2885859</td>
+<td align="right">4,445,445</td>
+<td align="right">67,000,968.00</td>
 </tr>
 </tbody>
 </table>
