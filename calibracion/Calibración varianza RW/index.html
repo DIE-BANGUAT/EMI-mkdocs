@@ -134,11 +134,21 @@
 <p>En particular, se propone el modelo siguiente:
 $$ z_{i,t} = x_{i,t} \cdot y_{t} $$
 en donde <span><span class="MathJax_Preview">z_{i,t}</span><script type="math/tex">z_{i,t}</script></span> representa la variación intermensual del índice de precios del basto básico <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> en <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>, <span><span class="MathJax_Preview">x_{i,t}</span><script type="math/tex">x_{i,t}</script></span> la variación intermensual del índice de precios del basto básico <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> en <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> sin tendencia estocástica y <span><span class="MathJax_Preview">y_t</span><script type="math/tex">y_t</script></span> es el componente multiplicativo condicional de tendencia estocástica en <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>.</p>
-<p>La tendencia estocástica multiplicativa es una función exponencial (cuando la variación intermensual del índice de precios del gasto básico, sin tendencia estocástica, es positiva) o es una constante igual a uno (cuando la variación intermensual del índice de precios del gasto básico, sin tendencia estocástica, es no positiva). En particular: 
-$$ y_t = \begin{cases}
-e^{\rho_t} &amp;  \text{ si } x_{i,t} &gt; 0 \
-1 &amp;  \text{ si } x_{i,t} \leq 0
-\end{cases} $$ </p>
+<p>La tendencia estocástica multiplicativa es una función exponencial (cuando la variación intermensual del índice de precios del gasto básico, sin tendencia estocástica, es positiva) o es una constante igual a uno (cuando la variación intermensual del índice de precios del gasto básico, sin tendencia estocástica, es no positiva). En particular: </p>
+<div>
+<div class="MathJax_Preview"> y_t = \left\lbrace
+\begin{array}{cc}
+  e^{\rho_t} &amp; \text{ si } x_{i,t} &gt; 0 \\
+  1 &amp; \text{ si } x_{i,t} \leq 0
+\end{array}
+\right. </div>
+<script type="math/tex; mode=display"> y_t = \left\lbrace
+\begin{array}{cc}
+  e^{\rho_t} & \text{ si } x_{i,t} > 0 \\
+  1 & \text{ si } x_{i,t} \leq 0
+\end{array}
+\right. </script>
+</div>
 <p>En donde <span><span class="MathJax_Preview">\rho_t</span><script type="math/tex">\rho_t</script></span> tiene la especificación de una caminata aleatoria: 
 $$ \rho_t = \rho_{t-1} + \varepsilon_t, \quad \rho_0 = 0, \quad \varepsilon_t\sim N(0, \sigma_\varepsilon^2) $$</p>
 <h3 id="calibracion-de-la-varianza">Calibración de la varianza<a class="headerlink" href="#calibracion-de-la-varianza" title="Permanent link">&para;</a></h3>
