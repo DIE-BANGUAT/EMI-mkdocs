@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Calibración de varianza del proceso de caminata aleatoria - EMI</title>
+  <title>Especificación y calibración del factor de tendencia estocástica - HEMI</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Calibraci\u00f3n de varianza del proceso de caminata aleatoria";
+    var mkdocs_page_name = "Especificaci\u00f3n y calibraci\u00f3n del factor de tendencia estoc\u00e1stica";
     var mkdocs_page_input_path = "calibracion\\Calibraci\u00f3n varianza RW.md";
     var mkdocs_page_url = null;
   </script>
@@ -40,7 +40,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> EMI</a>
+        <a href="../.." class="icon icon-home"> HEMI</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -49,9 +49,9 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <p class="caption"><span class="caption-text">EMI</span></p>
+                <p class="caption"><span class="caption-text">HEMI</span></p>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../..">Evaluación de medidas de inflación (EMI) de Guatemala</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Herramienta de evaluación de medidas de inflación (HEMI) de Guatemala</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Principal</span></p>
@@ -63,11 +63,11 @@
                 </ul>
                 <p class="caption"><span class="caption-text">Calibración</span></p>
                 <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Calibración de varianza del proceso de caminata aleatoria</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Especificación y calibración del factor de tendencia estocástica</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#modelado-de-caminata-aleatoria">Modelado de caminata aleatoria</a>
+    <li class="toctree-l2"><a class="reference internal" href="#modelado-de-la-tendencia-estocastica">Modelado de la tendencia estocástica</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#calibracion-de-la-varianza">Calibración de la varianza</a>
+    <li class="toctree-l2"><a class="reference internal" href="#calibracion-de-la-varianza-del-ruido-blanco">Calibración de la varianza del ruido blanco</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#tendencia-en-las-trayectorias-de-inflacion">Tendencia en las trayectorias de inflación</a>
     </li>
@@ -96,7 +96,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">EMI</a>
+        <a href="../..">HEMI</a>
       </nav>
 
       
@@ -112,10 +112,10 @@
         
       
     
-    <li>Calibración de varianza del proceso de caminata aleatoria</li>
+    <li>Especificación y calibración del factor de tendencia estocástica</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/DIE-BANGUAT/EMI-mkdocs/edit/master/docs/calibracion/Calibración varianza RW.md"
+        <a href="https://github.com/DIE-BANGUAT/EMI-docs/edit/master/docs/calibracion/Calibración varianza RW.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -126,15 +126,14 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="calibracion-de-varianza-del-proceso-de-caminata-aleatoria-del-emi">Calibración de varianza del proceso de caminata aleatoria del EMI<a class="headerlink" href="#calibracion-de-varianza-del-proceso-de-caminata-aleatoria-del-emi" title="Permanent link">&para;</a></h2>
-<p>Se describe a continuación la propuesta de calibración de caminata aleatoria para la tendencia de caminata aleatoria del proceso de evaluación de medidas de inflación.</p>
-<h3 id="modelado-de-caminata-aleatoria">Modelado de caminata aleatoria<a class="headerlink" href="#modelado-de-caminata-aleatoria" title="Permanent link">&para;</a></h3>
-<p>Se propone que la tendencia estocástica de la inflación, en la evaluación de medidas de inflación, sea multiplicativa. El propósito de hacer dicha tendencia no sea aditiva es evitar que la adición de un término común imponga una correlación espuria entre las medidas de inflación muestrales y la medida de inflación paramétrica.</p>
-<p>Por otro lado, para que haya continuidad en la dirección de la tendencia estocástica, cuando la inflación intermensual (poblacional o muestral) cambie de signo, se propone que el factor multiplicativo sólo afecte a las variaciones intermensuales de precios que tienen signo positivo.</p>
+                <h2 id="especificacion-y-calibracion-del-factor-de-tendencia-estocastica-de-la-hemi">Especificación y calibración del factor de tendencia estocástica de la HEMI<a class="headerlink" href="#especificacion-y-calibracion-del-factor-de-tendencia-estocastica-de-la-hemi" title="Permanent link">&para;</a></h2>
+<p>Se describe a continuación la propuesta de especificación y de calibración del factor de tendencia estocástica de la herramienta para la evaluación de medidas de inflación (HEMI).</p>
+<h3 id="modelado-de-la-tendencia-estocastica">Modelado de la tendencia estocástica<a class="headerlink" href="#modelado-de-la-tendencia-estocastica" title="Permanent link">&para;</a></h3>
+<p>Se propone que la tendencia estocástica de la inflación, en la evaluación de medidas de inflación, sea multiplicativa<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. Sin embargo, para que haya continuidad en la dirección de la tendencia estocástica, cuando la inflación intermensual (poblacional o muestral) cambie de signo, se propone que el factor multiplicativo sólo afecte a las variaciones intermensuales (de índices de precios los gastos básicos) que tienen signo positivo.</p>
 <p>En particular, se propone el modelo siguiente:
 $$ z_{i,t} = x_{i,t} \cdot y_{t} $$
 en donde <span><span class="MathJax_Preview">z_{i,t}</span><script type="math/tex">z_{i,t}</script></span> representa la variación intermensual del índice de precios del basto básico <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> en <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>, <span><span class="MathJax_Preview">x_{i,t}</span><script type="math/tex">x_{i,t}</script></span> la variación intermensual del índice de precios del basto básico <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> en <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> sin tendencia estocástica y <span><span class="MathJax_Preview">y_t</span><script type="math/tex">y_t</script></span> es el componente multiplicativo condicional de tendencia estocástica en <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>.</p>
-<p>La tendencia estocástica multiplicativa es una función exponencial (cuando la variación intermensual del índice de precios del gasto básico, sin tendencia estocástica, es positiva) o es una constante igual a uno (cuando la variación intermensual del índice de precios del gasto básico, sin tendencia estocástica, es no positiva). En particular: </p>
+<p>La tendencia estocástica multiplicativa es una función exponencial (cuando la variación intermensual del índice de precios del gasto básico, sin tendencia estocástica, es positiva) o es una constante igual a uno (cuando la variación intermensual del índice de precios del gasto básico, sin tendencia estocástica, es negativa). En particular: </p>
 <div>
 <div class="MathJax_Preview"> y_t = \left\lbrace
 \begin{array}{cc}
@@ -151,70 +150,98 @@ en donde <span><span class="MathJax_Preview">z_{i,t}</span><script type="math/te
 </div>
 <p>En donde <span><span class="MathJax_Preview">\rho_t</span><script type="math/tex">\rho_t</script></span> tiene la especificación de una caminata aleatoria: 
 $$ \rho_t = \rho_{t-1} + \varepsilon_t, \quad \rho_0 = 0, \quad \varepsilon_t\sim N(0, \sigma_\varepsilon^2) $$</p>
-<h3 id="calibracion-de-la-varianza">Calibración de la varianza<a class="headerlink" href="#calibracion-de-la-varianza" title="Permanent link">&para;</a></h3>
+<h3 id="calibracion-de-la-varianza-del-ruido-blanco">Calibración de la varianza del ruido blanco<a class="headerlink" href="#calibracion-de-la-varianza-del-ruido-blanco" title="Permanent link">&para;</a></h3>
 <p>Para generar las series de tiempo correspondientes al parámetro poblacional y a las simulaciones muestrales, la variable <span><span class="MathJax_Preview">\rho_t</span><script type="math/tex">\rho_t</script></span> tiene valor inicial cero y luego evoluciona de acuerdo con su ley de movimiento (caminata aleatoria).  Para este propósito, los valores de los choques estocásticos <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> se extraen de una distribución normal con media cero y con varianza <span><span class="MathJax_Preview">\sigma_\varepsilon^2</span><script type="math/tex">\sigma_\varepsilon^2</script></span>.</p>
-<p>El valor de <span><span class="MathJax_Preview">\sigma_\varepsilon^2</span><script type="math/tex">\sigma_\varepsilon^2</script></span> se obtiene a partir de los datos históricos observados de inflación de Guatemala, de la manera siguiente:</p>
-<p>$$ \sigma_\varepsilon^2 = \text{Var}(\delta_t) $$
+<p>El valor de <span><span class="MathJax_Preview">\sigma_\varepsilon^2</span><script type="math/tex">\sigma_\varepsilon^2</script></span> se obtiene a partir de los datos históricos observados de inflación de Guatemala, de la manera siguiente:
+$$ \sigma_\varepsilon^2 = \text{Var}(\delta_t) $$
 en donde<br />
 $$ \delta_t = \frac{1}{12} \sum_{j=1}^{12} \left(q_{t-j} - q_{t-j-1} \right) $$<br />
 corresponde a la media móvil de 12 meses de las diferencias en las variaciones intermensuales del IPC <span><span class="MathJax_Preview">q_t</span><script type="math/tex">q_t</script></span> del período <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> en los datos históricos.</p>
 <p>Al aplicar este proceso se obtiene la siguiente gráfica de variaciones intermensuales del IPC y sus medias móviles de 12 meses. Como se puede apreciar, la varianza es mucho menor para las medias móviles.  </p>
 <p><img alt="Variaciones intermensuales IPC" src="../images/calibracion-varianza/Calibraci%C3%B3n%20varianza%20RW_2020-07-14_154635.png" />  </p>
-<p>En la siguiente tabla se presentan las estimaciones de varianza y desviación estándar de las variaciones intermensuales del IPC en las dos períodos del IPC (así como en el período completo). Los valores se muestran en puntos porcentuales para las desviaciones estándar. Se puede resaltar que los valores de desviación estándar sin suavizamiento de media móvil parecen ser muy grandes, y por lo tanto, inadecuados para utilizarse en bruto para el proceso de calibración de varianza de la tendencia de caminata aleatoria.</p>
+<p>En la siguiente tabla se presentan las estimaciones de varianza y desviación estándar de las variaciones intermensuales del IPC en los dos períodos del IPC (así como en el período completo). Los valores se muestran en puntos porcentuales para las desviaciones estándar. Se puede resaltar que los valores de desviación estándar sin suavizamiento de media móvil parecen ser muy grandes, y por lo tanto, inadecuados para utilizarse en bruto para el proceso de calibración de varianza de la tendencia de caminata aleatoria.</p>
 <table>
 <thead>
 <tr>
-<th>Período</th>
-<th align="right">Varianza</th>
-<th align="right">Desviación estándar</th>
-<th align="right">Varianza media móvil</th>
-<th align="right">Desviación estándar media móvil</th>
+<th align="left">Volatilidad</th>
+<th align="right">Base 2000</th>
+<th align="right">Base 2010</th>
+<th align="right">Período completo</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Base 2000</td>
+<td align="left">Varianza</td>
 <td align="right">0.2713</td>
-<td align="right">0.5209</td>
-<td align="right">0.003490</td>
-<td align="right">0.0591</td>
-</tr>
-<tr>
-<td>Base 2010</td>
 <td align="right">0.2162</td>
-<td align="right">0.4650</td>
-<td align="right">0.001868</td>
-<td align="right">0.0432</td>
+<td align="right">0.2435</td>
 </tr>
 <tr>
-<td>Período completo</td>
-<td align="right">0.2435</td>
+<td align="left">Desviación estándar</td>
+<td align="right">0.5209</td>
+<td align="right">0.4650</td>
 <td align="right">0.4935</td>
-<td align="right">0.002693</td>
+</tr>
+<tr>
+<td align="left">Varianza media móvil</td>
+<td align="right">0.003490</td>
+<td align="right">0.001868</td>
+<td align="right">0.00269</td>
+</tr>
+<tr>
+<td align="left">Desviación estándar media móvil</td>
+<td align="right">0.0591</td>
+<td align="right">0.0432</td>
 <td align="right">0.0519</td>
 </tr>
 </tbody>
 </table>
 <p>Ahora se procederá a computar una señal de ruido blanco utilizando la varianza de la media móvil de 12 meses de las variaciones intermensuales del IPC de la base 2000 y del período completo. A continuación, como ejemplo, se muestra una de las realizaciones:  </p>
-<p><img alt="Ruido blanco" src="../images/calibracion-varianza/Calibraci%C3%B3n%20varianza%20RW_2020-07-16_155842.png" />  </p>
-<p>Como se puede observar, la volatilidad de la señal de ruido blanco utilizando la varianza del período completo (<span><span class="MathJax_Preview">\text{Var}(\delta_t) = 0.0027</span><script type="math/tex">\text{Var}(\delta_t) = 0.0027</script></span>) es ligeramente menor a la volatilidad de la señal de ruido blanco que utiliza la varianza solamente de la base 2000 (<span><span class="MathJax_Preview">\text{Var}(\delta_t) = 0.0035</span><script type="math/tex">\text{Var}(\delta_t) = 0.0035</script></span>). Aunque, en apariencia, la diferencia de volatilidad no parece muy importante.</p>
-<p>A continuación se procederá a utilizar la señal de ruido blanco del período completo para computar las trayectorias paramétricas de inflación. Esto permitirá evaluar si la volatilidad calibrada a través de este procedimiento es adecuada, es decir, si permite que la evolución de la tendencia estocástica genere cambios significativos, pero no muy grandes, en la trayectoria de la inflación interanual.</p>
+<!-- **Trayectorias de la caminata aleatoria $\rho_t$** -->
+
+<p><img alt="Ruido blanco" src="../images/calibracion-varianza/2020-09-11-11-10-08.png" /></p>
+<p>Como se puede observar, la volatilidad de la señal de ruido blanco utilizando la varianza del período completo (<span><span class="MathJax_Preview">\text{Var}(\delta_t) = 0.0027</span><script type="math/tex">\text{Var}(\delta_t) = 0.0027</script></span>) es ligeramente menor a la volatilidad de la señal de ruido blanco que utiliza la varianza solamente de la base 2000 (<span><span class="MathJax_Preview">\text{Var}(\delta_t) = 0.0035</span><script type="math/tex">\text{Var}(\delta_t) = 0.0035</script></span>); aunque, en apariencia, la diferencia de volatilidad no parece muy grande.</p>
+<p>A continuación se procederá a utilizar la trayectoria de la caminata aleatoria calibrada a la varianza del período completo para computar el factor de tendencia estocástica de la inflación y las correspondientes trayectorias paramétricas de inflación. Esto permitirá evaluar si la volatilidad calibrada a través de este procedimiento es adecuada; es decir, si permite que la evolución de la tendencia estocástica genere cambios significativos, pero no demasiado grandes, en la trayectoria de la inflación interanual.</p>
 <h3 id="tendencia-en-las-trayectorias-de-inflacion">Tendencia en las trayectorias de inflación<a class="headerlink" href="#tendencia-en-las-trayectorias-de-inflacion" title="Permanent link">&para;</a></h3>
 <p>En esta sección se describe cómo quedan los parámetros poblacionales de inflación resultantes al utilizar tres tipos de tendencia multiplicativa.</p>
 <ul>
-<li>Una componente de tendencia que anula el efecto de tendencia multiplicativo. Es equivalente a un factor igual a uno. </li>
-<li>La señal de ruido blanco calibrada con las variaciones intermensuales del IPC.</li>
-<li>Una componente de crecimiento exponencial, calibrada para reflejar factores de crecimiento del 2% interanual. </li>
+<li>Un factor constante igual a uno. </li>
+<li>Un factor de tendencia estocástica, calibrado como se explica en el apartado anterior.</li>
+<li>Un factor de crecimiento exponencial determinístico, calibrado para reflejar un crecimiento tendencial del 2% interanual. </li>
 </ul>
-<p>En la siguiente figura se aprecia los diferentes factores multiplicativos de tendencia en el proceso de cómputo de inflación paramétrica y en el remuestreo.  </p>
-<p><img alt="Componentes tendencia" src="../images/calibracion-varianza/2020-09-08-14-26-28.png" /></p>
+<p>En la siguiente figura se aprecian los tres diferentes factores multiplicativos de tendencia que podrían aplicarse en el proceso de cómputo de inflación paramétrica y en el remuestreo.</p>
+<!-- **Factores de tendencia inflacionaria** -->
+
+<!-- ![Componentes tendencia](images/calibracion-varianza/2020-09-08-14-26-28.png) -->
+
+<p><img alt="Componentes tendencia" src="../images/calibracion-varianza/2020-09-11-11-11-11.png" /></p>
 <p>Como referencia, se muestran las trayectorias de inflación paramétrica sin tendencia.  </p>
-<p><img alt="Trayectorias paramétricas sin tendencia SN" src="../images/calibracion-varianza/2020-09-08-14-27-54.png" /></p>
-<p>Se muestran las trayectorias de inflación paramétrica utilizando la componente multiplicativa de tendencia de caminata aleatoria que se muestra en color morado en la figura anterior de componentes de tendencia.  </p>
-<p><img alt="Trayectorias paramétricas tendencia multiplicativa RW" src="../images/calibracion-varianza/2020-09-08-14-28-19.png" /></p>
-<p>Como se observa, se obtienen trayectorias de inflación paramétrica con tendencia estocástica y moderada volatilidad, por lo que el método de calibración podría considerarse adecuadamente escalado para modelar la varianza del proceso de caminata aleatoria de la tendencia.  </p>
-<p>Finalmente, se muestran las trayectorias de inflación paramétrica utilizando la componente multiplicativa de tendencia de factor exponencial que se muestra en color azul en la figura anterior de componentes de tendencia.  </p>
-<p><img alt="Trayectorias paramétricas tendencia multiplicativa EXP" src="../images/calibracion-varianza/2020-09-08-14-29-00.png" /></p>
+<!-- **Trayectorias de inflación paramétrica sin tendencia inflacionaria** -->
+
+<!-- ![Trayectorias paramétricas sin tendencia SN](images/calibracion-varianza/2020-09-08-14-27-54.png) -->
+
+<p><img alt="Trayectorias paramétricas sin tendencia SN" src="../images/calibracion-varianza/2020-09-11-11-10-56.png" /></p>
+<p>Seguidamente se muestran las trayectorias de inflación paramétrica aplicando el factor tendencial multiplicativo que se muestra en color morado en la figura denominada "Factores de Tendencia Inflacionaria".</p>
+<!-- **Trayectorias de inflación paramétrica con tendencia inflacionaria estocástica** -->
+
+<!-- ![Trayectorias paramétricas tendencia multiplicativa RW](images/calibracion-varianza/2020-09-08-14-28-19.png) -->
+
+<p><img alt="Trayectorias paramétricas tendencia multiplicativa RW" src="../images/calibracion-varianza/2020-09-11-11-11-52.png" /></p>
+<p>Como se observa, se obtienen trayectorias de inflación paramétrica con tendencia estocástica y moderada volatilidad, por lo que el método de calibración puede considerarse adecuadamente escalado para modelar la varianza del factor multiplicativo de la tendencia.</p>
+<p>Finalmente, a continuación se muestran las trayectorias de inflación paramétrica aplicando el factor multiplicativo de tendencia de crecimiento exponencial determinístico que se muestra en color azul en la figura denominada "Factores de tendencia inflacionaria".</p>
+<!-- **Trayectorias de inflación paramétrica con tendencia inflacionaria de crecimiento exponencial** -->
+
+<!-- ![Trayectorias paramétricas tendencia multiplicativa EXP](images/calibracion-varianza/2020-09-08-14-29-00.png) -->
+
+<p><img alt="Trayectorias paramétricas tendencia multiplicativa EXP" src="../images/calibracion-varianza/2020-09-11-11-12-22.png" /></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>No se plantea un proceso de tendencia estocástica aditiva para evitar que la adición de un término común imponga una correlación espuria entre las medidas de inflación muestrales y la medida de inflación paramétrica.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
               
             </div>
           </div>
@@ -250,7 +277,7 @@ corresponde a la media móvil de 12 meses de las diferencias en las variaciones 
   <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/DIE-BANGUAT/EMI-mkdocs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/DIE-BANGUAT/EMI-docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../../cuerpo/justificacion/" style="color: #fcfcfc;">&laquo; Previous</a></span>

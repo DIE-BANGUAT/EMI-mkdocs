@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Selección del número de simulaciones - EMI</title>
+  <title>Selección del número de simulaciones - HEMI</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -40,7 +40,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> EMI</a>
+        <a href="../.." class="icon icon-home"> HEMI</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -49,9 +49,9 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <p class="caption"><span class="caption-text">EMI</span></p>
+                <p class="caption"><span class="caption-text">HEMI</span></p>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../..">Evaluación de medidas de inflación (EMI) de Guatemala</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Herramienta de evaluación de medidas de inflación (HEMI) de Guatemala</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Principal</span></p>
@@ -63,7 +63,7 @@
                 </ul>
                 <p class="caption"><span class="caption-text">Calibración</span></p>
                 <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../Calibraci%C3%B3n%20varianza%20RW/">Calibración de varianza del proceso de caminata aleatoria</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../Calibraci%C3%B3n%20varianza%20RW/">Especificación y calibración del factor de tendencia estocástica</a>
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Selección del número de simulaciones</a>
     <ul class="current">
@@ -73,7 +73,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#literatura-academica">Literatura académica</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#chernick-2da-ed">Chernick, (2da. ed.)</a>
+    <li class="toctree-l3"><a class="reference internal" href="#chernick">Chernick</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#degroot-y-schervish-version-con-estimador-normal">DeGroot y Schervish, versión con estimador normal</a>
     </li>
@@ -110,7 +110,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">EMI</a>
+        <a href="../..">HEMI</a>
       </nav>
 
       
@@ -129,7 +129,7 @@
     <li>Selección del número de simulaciones</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/DIE-BANGUAT/EMI-mkdocs/edit/master/docs/calibracion/Selección simulaciones.md"
+        <a href="https://github.com/DIE-BANGUAT/EMI-docs/edit/master/docs/calibracion/Selección simulaciones.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -146,20 +146,20 @@
 <p>A continuación, se presentan algunas referencias para definir el número de simulaciones a realizar.</p>
 </li>
 <li>
-<p>Posteriormente, se presenta la propuesta final para el esquema de evaluación de medidas de inflación.</p>
+<p>Posteriormente, se presenta la propuesta final para la herramienta de evaluación de medidas de inflación.</p>
 </li>
 </ul>
 <h3 id="busqueda-en-foros-en-linea">Búsqueda en foros en línea<a class="headerlink" href="#busqueda-en-foros-en-linea" title="Permanent link">&para;</a></h3>
 <p>Consulta en foros de estadística: <a href="https://stats.stackexchange.com/questions/86040/rule-of-thumb-for-number-of-bootstrap-samples">StackExchange: Rule of thumb for number of bootstrap samples</a>. Algunos comentarios mencionan algunas alternativas:</p>
 <ul>
-<li>Utilizar tantas como sean posibles, con límite en 1 millón.</li>
+<li>Utilizar tantas como sean posibles, con límite superior en un millón.</li>
 <li>Correr varias veces la simulación con un número inicial considerado como suficiente y ver la variación en los estimadores de <em>bootstrap</em>. Si las estimaciones repetidas no varían mucho, el número de simulaciones es adecuado. </li>
 <li>Utilizar 10,000 simulaciones para experimentos propios y hasta 100,000 simulaciones cuando se comparten resultados con otros (con conjuntos de datos pequeños).</li>
 </ul>
 <h3 id="revision-de-papers-de-inflacion">Revisión de papers de inflación<a class="headerlink" href="#revision-de-papers-de-inflacion" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p>Haciendo una revisión de los papers principales con metodología similar a la adoptada por el EMI tenemos: </p>
+<p>Haciendo una revisión de los papers principales con metodología similar a la aplicada en la HEMI tenemos: </p>
 </li>
 <li>
 <p>Bryan, Cecchetti y Wiggings (1997) <em>Efficient Inflation Estimation</em>: procedimiento de <em>bootstrap</em> similar. Se considera un número de simulaciones igual a 10,000 sin mecionar alguna justificación cuantitativa. Sin embargo, en su ejercicio de simulación utilizan menos categorías del IPC y del IPP.</p>
@@ -168,22 +168,18 @@
 <p>Roger (1997) <em>A robust measure of core inflation in New Zealand, 1949-96</em>: se evalúa un percentil óptimo para Nueva Zelanda, pero sin técnicas de simulación. La evaluación se hace obteniendo el percentil de la media y tomando un promedio para diferentes períodos. </p>
 </li>
 </ul>
-<!-- 
-_footer: ''
--->
-
 <h3 id="literatura-academica">Literatura académica<a class="headerlink" href="#literatura-academica" title="Permanent link">&para;</a></h3>
 <ul>
-<li>En Chernick, 2da. ed. (2011) <em>Bootstrap methods : a guide for practitioners and researchers</em> se discute: </li>
+<li>En Chernick (2011) <em>Bootstrap methods : a guide for practitioners and researchers</em> se discute: </li>
 </ul>
 <blockquote>
 <p>Let <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> be the number of bootstrap replications in a uniform resampling. Let <span><span class="MathJax_Preview">\sigma_{B}^2</span><script type="math/tex">\sigma_{B}^2</script></span> be the variance of a single bootstrap resample estimate of the parameter. Since the Monte Carlo approximation to the bootstrap estimate is an average of <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> such estimates independently drawn, the variance of the Monte Carlo approximation is just <span><span class="MathJax_Preview">\sigma_{B}^2/B</span><script type="math/tex">\sigma_{B}^2/B</script></span>. 
 Of course, this basic result is well known and has been applied for many years to judge how many replications to take in a simulation. There is nothing new here with the bootstrap. For the bootstrap, the particular distribution being sampled is the empirical distribution, but otherwise nothing is different.</p>
 </blockquote>
 <ul>
-<li>Esta aseveración se formaliza aún más en DeGroot y Schervish, 4ta. ed. (2012) <em>Probability and Statistics</em>.</li>
+<li>Esta aseveración se formaliza aún más en DeGroot y Schervish, (2012) <em>Probability and Statistics</em>.</li>
 </ul>
-<h4 id="chernick-2da-ed">Chernick, (2da. ed.)<a class="headerlink" href="#chernick-2da-ed" title="Permanent link">&para;</a></h4>
+<h4 id="chernick">Chernick<a class="headerlink" href="#chernick" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p>Más adelante se tiene: </p>
@@ -201,13 +197,15 @@ Of course, this basic result is well known and has been applied for many years t
 <h4 id="degroot-y-schervish-version-con-estimador-normal">DeGroot y Schervish, versión con estimador normal<a class="headerlink" href="#degroot-y-schervish-version-con-estimador-normal" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
-<p>Se supone un estimador de Monte Carlo <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> de un parámetro <span><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>, basado en <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> simulaciones, siendo <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> un promedio (estimador de la media poblacional), entonces <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> tiene aproximadamente distribución normal con media <span><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span> y varianza <span><span class="MathJax_Preview">\sigma^2/v</span><script type="math/tex">\sigma^2/v</script></span>, en donde <span><span class="MathJax_Preview">\sigma^2</span><script type="math/tex">\sigma^2</script></span> no depende del tamaño de la simulación. Entonces, para cada <span><span class="MathJax_Preview">\epsilon &gt; 0</span><script type="math/tex">\epsilon > 0</script></span>: 
-$$ Pr(|Z-\theta| \leq \epsilon) \approx 2\Phi(\epsilon v^{1/2} / \sigma) -1 $$</p>
+<p>Se supone un estimador de Monte Carlo <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> de un parámetro <span><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>, basado en <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> simulaciones, siendo <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> un promedio<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> (estimador de la media poblacional), entonces <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> tiene aproximadamente distribución normal con media <span><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span> y varianza <span><span class="MathJax_Preview">\sigma^2/v</span><script type="math/tex">\sigma^2/v</script></span>, en donde <span><span class="MathJax_Preview">\sigma^2</span><script type="math/tex">\sigma^2</script></span> no depende del tamaño de la simulación. Entonces, para cada <span><span class="MathJax_Preview">\epsilon &gt; 0</span><script type="math/tex">\epsilon > 0</script></span>: 
+$$ Pr(|Z-\theta| \leq \epsilon) \approx 2\Phi(\epsilon v^{1/2} / \sigma) -1 $$
+en donde <span><span class="MathJax_Preview">\Phi(\cdot)</span><script type="math/tex">\Phi(\cdot)</script></span> representa la función de distribución acumulada de la distribución normal estándar.</p>
 </li>
 <li>
-<p>A partir de esto, podemos fijar esta probabilidad como <span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span> y escoger <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> a partir de dicha ecuación: 
-$$ v = \left[ \Phi^{-1}\left( \frac{1+\gamma}{2} \right) \frac{\hat{\sigma}}{\epsilon} \right]^2 $$</p>
+<p>Ya que, usualmente, la desviación estándar <span><span class="MathJax_Preview">\sigma</span><script type="math/tex">\sigma</script></span> no es conocida, esta se estima a través de un número inicial de simulaciones.</p>
 </li>
+<li>A partir de esto, podemos se tiene la probabilidad <span><span class="MathJax_Preview">\gamma = Pr(|Z-\theta| \leq \epsilon)</span><script type="math/tex">\gamma = Pr(|Z-\theta| \leq \epsilon)</script></span> y se escoge <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> a partir de dicha ecuación: 
+$$ v = \left[ \Phi^{-1}\left( \frac{1+\gamma}{2} \right) \frac{\hat{\sigma}}{\epsilon} \right]^2 $$</li>
 </ul>
 <h4 id="degroot-y-schervish-version-con-el-teorema-de-chebyshev">DeGroot y Schervish, versión con el teorema de Chebyshev<a class="headerlink" href="#degroot-y-schervish-version-con-el-teorema-de-chebyshev" title="Permanent link">&para;</a></h4>
 <ul>
@@ -218,11 +216,11 @@ $$ v = \frac{\sigma^2}{\epsilon^2 (1-\gamma)} $$</li>
 </ul>
 <h3 id="propuesta-para-definir-el-numero-de-simulaciones">Propuesta para definir el número de simulaciones<a class="headerlink" href="#propuesta-para-definir-el-numero-de-simulaciones" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Utilizar la aproximación normal <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> de la media del estadístico de precisión y computar <span><span class="MathJax_Preview">\epsilon = 0.05|Z|</span><script type="math/tex">\epsilon = 0.05|Z|</script></span>. Es decir, se permite una distancia del 5% del valor del estadístico <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> y el parámetro estimado.</li>
+<li>Utilizar el hecho de que la distribución de <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> (de la media <span><span class="MathJax_Preview">\overline{\text{MSE}}_{j}</span><script type="math/tex">\overline{\text{MSE}}_{j}</script></span> del estadístico de error cuadrático medio <span><span class="MathJax_Preview">\text{MSE}_{j}</span><script type="math/tex">\text{MSE}_{j}</script></span> de la medida de inflación <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span>) se aproxima a la distribución normal y computar <span><span class="MathJax_Preview">\epsilon = 0.05|Z|</span><script type="math/tex">\epsilon = 0.05|Z|</script></span>. Es decir, se permite una distancia del 5% del valor del estadístico <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> entre éste y el parámetro estimado.</li>
 <li>Utilizar <span><span class="MathJax_Preview">\gamma = 0.95</span><script type="math/tex">\gamma = 0.95</script></span>, es decir, que la probabilidad del intervalo de confianza sea del 95%.</li>
-<li>Fijar el número de simulaciones al número requerido por la medida de evaluación para la medida de inflación denominada <strong>"Variación interanual del IPC"</strong>, ya que es la que mayor varianza presenta en sus distribuciones.  </li>
+<li>Fijar el número de simulaciones al número requerido por la medida de evaluación para la medida de inflación denominada <strong>"Variación interanual del IPC"</strong>, ya que es la que mayor varianza presenta en las distribuciones de sus estadísticos de error.  </li>
 <li>En este caso, el número de simulaciones estaría dado por:
-$$ v = (400) \frac{\sigma^2}{Z^2} \left[ \Phi^{-1}\left( \frac{1+\gamma}{2} \right) \right]^2 $$</li>
+$$ v = (400) \left[ \Phi^{-1}\left( \frac{1.95}{2} \right) \right]^2 \frac{\sigma^2}{Z^2}$$</li>
 <li>Ventajas: </li>
 <li>Criterio cuantitativo bien definido, factible y no tan estricto (pero que permite alcanzar una alta probabilidad para el intervalo de confianza). </li>
 <li>El número de simulaciones está en función del coeficiente de variación de la medida de evaluación (mayor dispersión relativa, más simulaciones). </li>
@@ -230,7 +228,7 @@ $$ v = (400) \frac{\sigma^2}{Z^2} \left[ \Phi^{-1}\left( \frac{1+\gamma}{2} \rig
 <h4 id="numero-de-simulaciones-con-base-en-el-mse">Número de simulaciones con base en el MSE<a class="headerlink" href="#numero-de-simulaciones-con-base-en-el-mse" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Utilizando el MSE de la variación interanual del IPC con la calibración de tendencia de caminata aleatoria, <span><span class="MathJax_Preview">Z=\overline{\text{MSE}} = 77.48</span><script type="math/tex">Z=\overline{\text{MSE}} = 77.48</script></span> y <span><span class="MathJax_Preview">\epsilon=cZ</span><script type="math/tex">\epsilon=cZ</script></span>, <span><span class="MathJax_Preview">c \in \lbrace0.05, 0.025, 0.01\rbrace</span><script type="math/tex">c \in \lbrace0.05, 0.025, 0.01\rbrace</script></span>. </li>
-<li>La desviación estándar en la distribución de simulación del MSE es $\hat{\sigma} = 698.63 $. </li>
+<li>Con una simulación inicial de 110,000 realizaciones, la desviación estándar en la distribución de simulación del MSE es <span><span class="MathJax_Preview">\hat{\sigma} = 698.63</span><script type="math/tex">\hat{\sigma} = 698.63</script></span>. </li>
 <li>Por lo tanto, para los diferentes niveles de confianza <span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span> y desviación absoluta <span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> admisible tenemos: </li>
 </ul>
 <table>
@@ -330,9 +328,11 @@ $$ v = (400) \frac{\sigma^2}{Z^2} \left[ \Phi^{-1}\left( \frac{1+\gamma}{2} \rig
 </tbody>
 </table>
 <ul>
-<li>Se utilizan 125,000 simulaciones para el escenario base de evaluación y 500,000 simulaciones para el análisis de sensbilidad.
+<li>Se utilizan 125,000 simulaciones para el escenario base de evaluación y 500,000 simulaciones para el análisis de sensbilidad.</li>
+</ul>
 <!-- Resultados anteriores con tendencia aditiva RW -->
-<!-- | <span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span> | <span><span class="MathJax_Preview">\hat{\sigma}</span><script type="math/tex">\hat{\sigma}</script></span> | <span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> | <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> (normal) | <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> (Chebyshev) |
+
+<!-- | $\gamma$ | $\hat{\sigma}$ | $\epsilon$ | $v$ (normal) | $v$ (Chebyshev) |
 |:--------:|:--------------:|-----------:|-------------:|----------------:|
 |   0.90   |    236.2194    |   1.442929 |    72,509.62 |       268,003.9 |
 |   0.90   |    236.2194    |  0.7214647 |    290,038.5 |       1,072,016 |
@@ -342,8 +342,8 @@ $$ v = (400) \frac{\sigma^2}{Z^2} \left[ \Phi^{-1}\left( \frac{1+\gamma}{2} \rig
 |   0.95   |    236.2194    |  0.2885859 |    2,573,815 |   13,400,194.00 |
 |   0.99   |    236.2194    |   1.442929 |    177,817.8 |       2,680,039 |
 |   0.99   |    236.2194    |  0.7214647 |    711,271.2 |   10,720,155.00 |
-|   0.99   |    236.2194    |  0.2885859 |    4,445,445 |   67,000,968.00 | --></li>
-</ul>
+|   0.99   |    236.2194    |  0.2885859 |    4,445,445 |   67,000,968.00 | -->
+
 <h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Bryan, Michael F., Stephen G. Cecchetti y Rodney L. Wiggins (1997). <em>Efficient inflation estimation</em>.</li>
@@ -355,6 +355,14 @@ $$ v = (400) \frac{\sigma^2}{Z^2} \left[ \Phi^{-1}\left( \frac{1+\gamma}{2} \rig
 <li>Walther, B. A., &amp; Moore, J. L. (2005). The concepts of bias, precision and accuracy, and their use in testing the performance of species richness estimators, with a literature review of estimator performance. Ecography, 28(6), 815-829.</li>
 <li>En línea. <a href="https://stats.stackexchange.com/questions/86040/rule-of-thumb-for-number-of-bootstrap-samples">StackExchange: Rule of thumb for number of bootstrap samples</a>. Consultado el 18/06/2020.</li>
 </ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>En el caso de la HEMI, <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> es el promedio empírico de los errores cuadráticos medios de las <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> simulaciones correspondientes a la medida de inflación <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span>. Es decir, <span><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> es el estimador <span><span class="MathJax_Preview">\overline{\text{MSE}}_{j}</span><script type="math/tex">\overline{\text{MSE}}_{j}</script></span>, en tanto que <span><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span> es el parámetro <span><span class="MathJax_Preview">\text{MSE}_{j}</span><script type="math/tex">\text{MSE}_{j}</script></span>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
               
             </div>
           </div>
@@ -365,7 +373,7 @@ $$ v = (400) \frac{\sigma^2}{Z^2} \left[ \Phi^{-1}\left( \frac{1+\gamma}{2} \rig
         <a href="../Determinaci%C3%B3n%20medida%20evaluaci%C3%B3n/" class="btn btn-neutral float-right" title="Selección de la medida de evaluación">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../Calibraci%C3%B3n%20varianza%20RW/" class="btn btn-neutral" title="Calibración de varianza del proceso de caminata aleatoria"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Calibraci%C3%B3n%20varianza%20RW/" class="btn btn-neutral" title="Especificación y calibración del factor de tendencia estocástica"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -390,7 +398,7 @@ $$ v = (400) \frac{\sigma^2}{Z^2} \left[ \Phi^{-1}\left( \frac{1+\gamma}{2} \rig
   <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/DIE-BANGUAT/EMI-mkdocs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/DIE-BANGUAT/EMI-docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../Calibraci%C3%B3n%20varianza%20RW/" style="color: #fcfcfc;">&laquo; Previous</a></span>
