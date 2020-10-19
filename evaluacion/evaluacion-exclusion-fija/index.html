@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Evaluación de medidas de inflación basadas en la exclusión de gastos básicos - HEMI</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Evaluaci\u00f3n de medidas de inflaci\u00f3n basadas en la exclusi\u00f3n de gastos b\u00e1sicos";
+    var mkdocs_page_input_path = "evaluacion\\evaluacion-exclusion-fija.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/matlab.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> HEMI</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">HEMI</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Herramienta de evaluación de medidas de inflación (HEMI) de Guatemala</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Principal</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../cuerpo/introduccion/">Introducción</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../cuerpo/justificacion/">Justificación</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Calibración</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../calibracion/Calibraci%C3%B3n%20varianza%20RW/">Especificación y calibración del factor de tendencia estocástica</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../calibracion/Selecci%C3%B3n%20simulaciones/">Selección del número de simulaciones</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../calibracion/Determinaci%C3%B3n%20medida%20evaluaci%C3%B3n/">Selección de la medida de evaluación</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../calibracion/Remuestreo%20block%20bootstrap/">Remuestreo con block bootstrap</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Evaluación</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../criterios-de-evaluacion/">Criterios de evaluación y pruebas de sensibilidad</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../evaluacion-percentiles/">Evaluación de las medidas basadas en percentiles</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../exclusion-fija/">Evaluación de las medidas basadas en exclusión fija</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">HEMI</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Evaluación de medidas de inflación basadas en la exclusión de gastos básicos</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/DIE-BANGUAT/EMI-docs/edit/master/docs/evaluacion/evaluacion-exclusion-fija.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="evaluacion-de-medidas-de-inflacion-basadas-en-la-exclusion-de-gastos-basicos">Evaluación de medidas de inflación basadas en la exclusión de gastos básicos<a class="headerlink" href="#evaluacion-de-medidas-de-inflacion-basadas-en-la-exclusion-de-gastos-basicos" title="Permanent link">&para;</a></h2>
+<p>En esta sección se documentan los resultados del proceso de evaluación de las medidas de inflación interanual basadas en la exclusión fija de algunos gástos básicos que componen el índice total de precios.</p>
+<p>Además de esto, se expone un procedimiento por el cuál optimiza a exclusión de gastos básicos a través de la aplicación de la HEMI y un criterio de descarte de los mismos.</p>
+<h3 id="medidas-de-exclusion-fija-a-evaluar-que-no-requieren-proceso-de-optimizacion">Medidas de exclusión fija a evaluar que no requieren proceso de optimización<a class="headerlink" href="#medidas-de-exclusion-fija-a-evaluar-que-no-requieren-proceso-de-optimizacion" title="Permanent link">&para;</a></h3>
+<p>En este apartado se definen las medidas de inflación subyacente de exclusión fija que serán evaluadas por la HEMI.</p>
+<ol>
+<li>
+<p>Medida de inflación subyacente de exclusión fija de alimentos y energéticos que forma parte del conjunto de medidas de inflación subyacente que integran la medida de Inflación Subyacente Oficial actualmente vigente en el Banco de Guatemala.</p>
+</li>
+<li>
+<p>Medida de inflación subyacente de exclusión fija de energéticos que forma parte del conjunto de medidas de inflación subyacente que integran la medida de Inflación Subyacente Oficial actualmente vigente en el Banco de Guatemala.</p>
+</li>
+<li>
+<p>Medida de inflación subyacente de exclusión fija de alimentos y energéticos en la cual queden excluidos todos los alimentos y todos los productos energéticos que forman parte del IPC de Guatemala.</p>
+</li>
+</ol>
+<h3 id="medidas-de-exclusion-fija-a-evaluar-que-requieren-proceso-de-optimizacion">Medidas de exclusión fija a evaluar que requieren proceso de optimización<a class="headerlink" href="#medidas-de-exclusion-fija-a-evaluar-que-requieren-proceso-de-optimizacion" title="Permanent link">&para;</a></h3>
+<p><strong>Medida de inflación subyacente de exclusión fija óptima, por volatilidad</strong></p>
+<p>Se determina, de manera óptima, la medida de inflación subyacente que excluye a los gastos básicos que han tenido mayor volatilidad (en la variación intermensual de sus respectivos números índices) en el período en el cual el IPC Base 200 y 2010 ha estado vigente.</p>
+<p>Para encontrar tal medida, se utiliza el algoritmo siguiente:</p>
+<ol>
+<li>
+<p>Para cada uno de los gastos básicos en cada base, hallar la desviación estándar de las variaciones intermensuales del respectivo índice de precios, desde el inicio de la base correspondiente hasta el final de la misma.</p>
+</li>
+<li>
+<p>Ordenar los gastos básicos en orden descendente de la mencionada desviación estándar.</p>
+</li>
+<li>
+<p>Evaluar la medida de inflación subyacente que excluye cero gastos básicos (esto es lo mismo que evaluar la medida de inflación total o variación interanual del IPC).</p>
+</li>
+<li>
+<p>Realizar una evaluación exploratoria (10,000 simulaciones) excluyendo, sucesivamente, el gásto básico con mayor volatilidad.</p>
+</li>
+<li>
+<p>Identificar la medida de exclusión fija que obtiene el menor <em>MSE</em>.</p>
+</li>
+<li>
+<p>Seleccionar aquellas medidas de exclusión fija que descartan 10 gastos básicos más y 10 gastos básicos menos a la identificada en el paso 5.</p>
+</li>
+<li>
+<p>Al conjunto de medidas seleccionado en el paso 6, realizar una evaluación con 125,000 simulaciones</p>
+</li>
+<li>
+<p>Identificar la medida de exclusión (evaluadas tal como indica el paso 7) que obtenga el menor <em>MSE</em></p>
+</li>
+<li>
+<p>Identificar los gástos básicos excluidos y listarlos. </p>
+</li>
+</ol>
+<p>Este proceso se realiza, en primer lugar, sobre la base 2000. Luego de obtener la medida de exclusión óptima en dicha base, se procede a realizar la optimización en la base 2010, evaluando el periodo completo junto a la medida de exclusión óptima hallada para la base 2000. </p>
+<p><strong>Medida de inflación subyacente de exclusión fija óptima, por correlación con el Percentil 72 Equiponderado</strong></p>
+<p>Se determina, de manera óptima, la medida de inflación subyacente que excluye a los gastos básicos cuyas respectivas series de variaciones interanuales de los índices de precios correspondientes tienen las menores correlaciones con la serie de las variaciones interanuales del índice de precios correspondiente a la medida de inflación denominada “Percentil 72 Equiponderado”.</p>
+<p>El algoritmo es el mismo al anterio, con la diferencia que:</p>
+<ul>
+<li>
+<p>Para cada uno de los gastos básicos en cada base, se calcula la correlación entre la serie de la variación interanual del índice de precios respectivo y la serie de la variación interanual del índice de precios correspondiente a la medida de inflación denominada “Percentil 72 Equiponderado”, en los datos históricos de inflación de Guatemala. Esto sustituye al paso 1 en el algoritmo aplicado para la medida de inflación subyacente de exclusión fija óptima, por volatilidad.</p>
+</li>
+<li>
+<p>Ordenar los gastos básicos en orden ascendente de la mencionada correlación. Esto sustituye al paso 2 en el algoritmo aplicado para medida de inflación subyacente de exclusión fija óptima, por volatilidad.</p>
+</li>
+</ul>
+<p><strong>Medida de inflación subyacente de exclusión fija óptima, por minimización de MSE respecto del Percentil 72 Equiponderado</strong></p>
+<p>Se determina, de manera óptima, la medida de inflación subyacente que excluye a los gastos básicos cuyas respectivas series de variaciones interanuales de los índices de precios correspondientes tienen los mayores valores de MSE respecto de la serie de las variaciones interanuales del índice de precios correspondiente a la medida de inflación denominada “Percentil 72 Equiponderado”.</p>
+<p>El algoritmo es el mismo al aplicado para la medida de inflación subyacente de exclusión fija óptima por volatilidad, con la diferencia que:</p>
+<ul>
+<li>
+<p>Para cada uno de los gastos básicos en cada base, se calcula el MSE de la serie de la variación interanual del índice de precios correspondiente respecto de la serie de la variación interanual del índice de precios de la medida de inflación denominada “Percentil 72 Equiponderado”, en los datos históricos de inflación de Guatemala. Esto sustituye al paso 1 en el algoritmo aplicado para la medida de inflación subyacente de exclusión fija óptima, por volatilidad.</p>
+</li>
+<li>
+<p>Ordenar los gastos básicos en orden descendente del mencionado MSE. Esto sustituye al paso 2 en el algoritmo aplicado para medida de inflación subyacente de exclusión fija óptima, por volatilidad.</p>
+</li>
+</ul>
+<h4 id="resultados-del-proceso-de-optimizacion"><strong>Resultados del proceso de optimización</strong><a class="headerlink" href="#resultados-del-proceso-de-optimizacion" title="Permanent link">&para;</a></h4>
+<h5 id="exclusion-basada-en-volatilidad"><strong>Exclusión basada en volatilidad</strong><a class="headerlink" href="#exclusion-basada-en-volatilidad" title="Permanent link">&para;</a></h5>
+<p>Para la base <strong>2000</strong>, los gastos básicos excluidos son:</p>
+<ul>
+<li>Tomate</li>
+<li>Güisquil</li>
+<li>Otras verdiras y hortalizas</li>
+<li>Frijol</li>
+<li>Cebolla</li>
+<li>Papa o patata</li>
+<li>Zanahoria</li>
+<li>Culantro o cilantro</li>
+<li>Gastos derivados del gas manufacturado y gases licuados de petróleo</li>
+<li>Gasolina</li>
+<li>Transporte urbano</li>
+<li>Transporte aéreo</li>
+<li>Otras cuotas fijas y extraordinarias en la educaión preprimaria y primaria</li>
+<li>Otras cuotas fijas y extraordinarios en la educación secundaria</li>
+</ul>
+<p>De los cuales se destacaN la cebolla y el tomate, siendo los gástos básicos que mayor inciden en la volatilidad de la inflación. Tal y como se observa en la gráfica, al descartar estos dos productos, el mse promedio (con 10,000 simulaciones) pasa de un valor de 110.1 a 1.9. </p>
+<p><img alt="" src="images/exclusion-fija/optim00/Expo_std.png" />
+<img alt="" src="images/exclusion-fija/optim00/Optim_std.png" /></p>
+<p>Para la base <strong>2010</strong>, evaluando en el periodo completo y utilizando la canasta anterior para calcular la medida de exclusión en la base 2000, se obtiene la siguiente canasta de exlcusión:</p>
+<ul>
+<li>Aguacate</li>
+<li>Tomate</li>
+<li>Güisquil</li>
+<li>Chile Pimiento</li>
+<li>Repollo</li>
+<li>lechuga</li>
+<li>Papa</li>
+<li>Zanahoria</li>
+<li>Culantro</li>
+<li>Hierbabuena</li>
+<li>Otras legumbres y hortalizas</li>
+<li>Gas propano</li>
+<li>Gasolina superior</li>
+<li>Gasolina regular</li>
+<li>Diesel</li>
+<li>Servicios de transporte aéreo</li>
+</ul>
+<p>De los cuales se destaca el tomate, siendo el gástos básicos que mayor inciden en la volatilidad de la inflación en esta base. Tal y como se observa en la gráfica, al descartar este producto, el mse promedio (con 10,000 simulaciones) pasa de un valor de 3.87 a 1.08. </p>
+<p><img alt="" src="images/exclusion-fija/optim10/Expo_std.png" />
+<img alt="" src="images/exclusion-fija/optim10/Optim_std.png" /></p>
+<h5 id="exclusion-fija-optima-por-correlacion-y-mse-con-el-percentil-72-equiponderado"><strong>Exclusión fija óptima por correlación y MSE con el Percentil 72 Equiponderado</strong><a class="headerlink" href="#exclusion-fija-optima-por-correlacion-y-mse-con-el-percentil-72-equiponderado" title="Permanent link">&para;</a></h5>
+<p>Utilizando estos dos criterios, se llega a unas medidas de exclusión óptimas que se resumen en la tabla siguiente.</p>
+<table>
+<thead>
+<tr>
+<th>Medida de exclusión</th>
+<th>Cantidad de Gastos Básicos Excluidos en la base 2000</th>
+<th>Cantidad de Gastos Básicos Excluidos en la base 2010</th>
+<th>MSE promedio en la base 2000</th>
+<th></th>
+<th>MSE promedio en la base 2010</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Volatilidad</td>
+<td>14</td>
+<td>17</td>
+<td>0.772</td>
+<td>0.641</td>
+<td></td>
+</tr>
+<tr>
+<td>Correlación respecto percentil equiponderado 72</td>
+<td>74</td>
+<td>74</td>
+<td>0.959</td>
+<td>0.660</td>
+<td></td>
+</tr>
+<tr>
+<td>MSE respecto percentil equiponderado 72</td>
+<td>14</td>
+<td>8</td>
+<td>0.860</td>
+<td>0.659</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Cabe destacar que, sin importar el criterio, la exclusión de aquellos gastos básicos con mayor volatilidad permite tener una medida de inflación subyacente mejor evaluada. </p>
+<p><img alt="" src="images/exclusion-fija/optim00/Expo_mse.png" />
+<img alt="" src="images/exclusion-fija/optim00/Expo_cor.png" /></p>
+<p>Tal y como se observa en las gráficas anteriores, la exclusión de ciertos gastos básicos (tomate y cebolla para la base 2000 y tomate para la base 2010) provoca gran disminución en la medida de exclusión evaluada.</p>
+<p><img alt="" src="images/exclusion-fija/optim10/Expo_mse.png" />
+<img alt="" src="images/exclusion-fija/optim10/Expo_cor.png" /></p>
+<p>Utilizando la información en la tabla resumen, se llega a la conclusión que el mejor criterio de exclusión es el que se realiza a través de la desviación estándar o volatilidad, dado que es la que genera el menor MSE promedio comparado con los otros criterios de exclusión.</p>
+<h3 id="resultados-con-criterios-base">Resultados con criterios base<a class="headerlink" href="#resultados-con-criterios-base" title="Permanent link">&para;</a></h3>
+<p>Aplicando el procedimiento de evaluación con los criterios de evaluación definidos con el período de evaluación hasta diciembre de 2019, se lleva a cabo la simulación de 125,000 realizaciones para cada una de las medidas de inflación interanual basadas en la exclusión fija de gastos básicos. </p>
+<p>Las 4 medidas seleccionadas se puede dividir en aquellas que pertenecen a la batería de medidas de inflación subyacente que sigue el Banguat, y aquellas que son propuesta en el presente documento. </p>
+<p>Las medidas que pertenecen a la batería Banguat son:
+* Energéticos seleccionados
+* Alimentos y energéticos seleccionados</p>
+<p>La medidas denominada <em>Exclusión Óptima</em>, es la resultante del proceso de optimización de exclusión presentado anteriormente.</p>
+<p><img alt="" src="images/exclusion-fija/result/Promedio-dash.png" /></p>
+<p>Se puede notar que la medida que únicamente excluye algunos energéticos seleccionados, es la que presenta un mayor MSE promedio, esto se debe a que dicha medida aún incluye algunos de los gastos básicos más volátiles como el tomate o la cebolla.</p>
+<h3 id="analisis-de-sensibilidad-ante-cambios-en-el-periodo-final-de-evaluacion">Análisis de sensibilidad ante cambios en el período final de evaluación<a class="headerlink" href="#analisis-de-sensibilidad-ante-cambios-en-el-periodo-final-de-evaluacion" title="Permanent link">&para;</a></h3>
+<p>Debido a que se considera el período completo de evaluación hasta diciembre de 2019, se realiza un análisis de sensibilidad que considera los resultados ante un cambio en el período final de evaluación. Se consideran los siguientes períodos finales de evaluación:</p>
+<ul>
+<li>Diciembre de 2018</li>
+<li>Junio de 2019</li>
+</ul>
+<p>Los resultados se muestran en la gráfica que se muestra a continuación.</p>
+<p><img alt="" src="images/exclusion-fija/result/final-sens-dash.png" /></p>
+<p>Como se puede observar, en todos los períodos finales considerados,la medida denominada <em>Exclusión óptima</em> resulta invariantemente óptima en términos del MSE de evaluación. Estos resultados muestran que dicha medida óptima no es sensible a cambios en los períodos finales de evaluación que están separados entre 6 meses y un año.</p>
+<h3 id="analisis-de-sensibilidad-ante-cambio-en-la-medida-de-evaluacion">Análisis de sensibilidad ante cambio en la medida de evaluación<a class="headerlink" href="#analisis-de-sensibilidad-ante-cambio-en-la-medida-de-evaluacion" title="Permanent link">&para;</a></h3>
+<p>Considerando los estadísticos de evaluación alternativos, se construye una gráfica que ilustra el desempeño de las medidas consideradas como óptimas en en el escenario base utilizando diferentes medidas de evaluación. Dicha gráfica se muestra a continuación.</p>
+<p><img alt="" src="images/exclusion-fija/result/medidas-sens-dash.png" /></p>
+<p>Se puede observa que la medida <em>Exclusión óptima</em> es la que optimiza todos 4 de los 5 estimadores, siendo la excepción el Error Medio, donde la medida que resulta óptima es <em>Alimentos y energéticos seleccionados</em>. </p>
+<p>Se puede concluir que la medida <em>Exclusión óptima</em> no es sensible al cambio de estadísticos. </p>
+<h3 id="analisis-de-sensibilidad-ante-cambios-en-el-subperiodo-de-evaluacion">Análisis de sensibilidad ante cambios en el subperíodo de evaluación<a class="headerlink" href="#analisis-de-sensibilidad-ante-cambios-en-el-subperiodo-de-evaluacion" title="Permanent link">&para;</a></h3>
+<p>A continuación, se presenta un análisis de sensibilidad de la evaluación al considerar un cambio en el período de evaluación. La siguiente gráfica ilustra la evaluación de las diferentes medidas exclusión en los diferentes períodos de evaluación, mientras que el escenario base se observa en la última fila, correspondiente al período completo.</p>
+<p><img alt="" src="images/exclusion-fija/result/eval-sens-dash.png" /></p>
+<p>Se puede notar que la medida <em>Exclusión óptima</em> permanece como la mejor evaluada sin importar el subperiodo de evaluación. Además se hace notar que el subperiodo de evaluación <em>2010</em> es la que presenta los MSE promedios más bajos en todas la medidas evaluadas. Por el contrario, el periodo con mayores MSE promedio corresponde al periodo de transición <em>2000-2010</em>.</p>
+<h3 id="analisis-de-sensibilidad-ante-cambios-en-la-componente-de-tendencia">Análisis de sensibilidad ante cambios en la componente de tendencia<a class="headerlink" href="#analisis-de-sensibilidad-ante-cambios-en-la-componente-de-tendencia" title="Permanent link">&para;</a></h3>
+<p>A continuación, se presenta un análisis de sensibilidad de la evaluación al considerar un cambio en la componente multiplicativa de tendencia en el procedimiento de evaluación. La siguiente gráfica ilustra la evaluación de las medidas de exclusión fija en tres escenarios de tendencia, siendo el escenario base el que se observa en la primera fila, correspondiente a la componente de tendencia de caminata aleatoria.</p>
+<p><img alt="" src="images/exclusion-fija/result/tend-sens-dash.png" /></p>
+<p>Se puede notar que la medida <em>Exclusión óptima</em> tiene el menor MSE promedio sin importar la tendencia aplicada. También se puede notar que la aplicación de una tendencia exponencial repercute en un MSE promedio más alto en todas las medidas de exclusión evaluadas. </p>
+<h3 id="analisis-de-sensibilidad-ante-cambios-en-la-trayectoria-de-inflacion-parametrica">Análisis de sensibilidad ante cambios en la trayectoria de inflación paramétrica<a class="headerlink" href="#analisis-de-sensibilidad-ante-cambios-en-la-trayectoria-de-inflacion-parametrica" title="Permanent link">&para;</a></h3>
+<p>Ahora se presenta un análisis de sensibilidad de la evaluación al considerar un cambio en la trayectoria de inflación paramétrica del procedimiento de evaluación. La siguiente gráfica ilustra la evaluación de las diferentes medidas de exclusión fija utilizando tres diferentes parámetros de inflación, siendo el escenario base el que se observa en la primera fila, correspondiente a la evaluación respecto al parámetro de variación interanual del IPC con cambios de base.</p>
+<p><img alt="" src="images/exclusion-fija/result/param-sens-dash.png" /></p>
+<p>Se puede notar que la medida <em>Exclusión óptima</em> tiene el menor MSE promedio sin importar el parámetro contra el que fue evaluada.</p>
+<h3 id="analisis-de-sensibilidad-ante-cambios-en-el-numero-de-simulaciones">Análisis de sensibilidad ante cambios en el número de simulaciones<a class="headerlink" href="#analisis-de-sensibilidad-ante-cambios-en-el-numero-de-simulaciones" title="Permanent link">&para;</a></h3>
+<p>En este caso, se realiza una prueba de sensibilidad cambiando el número de simulaciones a 500,000 realizaciones de las trayectorias de inflación muestral.</p>
+<p>Como se muestra en la gráfica siguiente, los resultados coinciden sin mayor variabilidad. Esto se debe a que el número inicial de simulaciones es en realidad más que suficiente para la distribución del MSE de los estimadores muestrales basados en percentiles (en realidad, con alrededor de 10,000 simulaciones se tenía errores estándar de simulación muy pequeños).</p>
+<p><img alt="" src="images/exclusion-fija/result/numSim-sens-dash.png" /></p>
+<h3 id="analisis-de-sensibilidad-ante-cambios-en-el-muestreo">Análisis de sensibilidad ante cambios en el muestreo<a class="headerlink" href="#analisis-de-sensibilidad-ante-cambios-en-el-muestreo" title="Permanent link">&para;</a></h3>
+<p>Se realiza una prueba de sensibilidad utilizando como técnica de remuestreo la variante de nonoverlapping block bootstrap con bloques de 12 meses. El muestreo se realiza de forma independiente para cada unos de los gastos básicos en cada una de las bases del IPC. A continuación, se muestran los resultados en la gráfica siguiente.</p>
+<h3 id="distribuciones-de-simulacion-del-mse-en-las-medidas-optimas">Distribuciones de simulación del MSE en las medidas óptimas<a class="headerlink" href="#distribuciones-de-simulacion-del-mse-en-las-medidas-optimas" title="Permanent link">&para;</a></h3>
+<p>A continuación, se presentan gráficas de las distribuciones de simulación del MSE en el escenario base. Esta gráfica permite observar el rango, o amplitud, de la distribución de simulación del estadístico de evaluación a través de la gráfica de la distribución acumulada.</p>
+<p><img alt="" src="images/exclusion-fija/result/mse-dist-dash.png" /></p>
+<p>Se puede observar que la medida <em>Energéticos seleccionados</em> presenta la distribución de MSE promedio con mayor desviación estándar, asimetría y curtosis. Por el contrario, la medida denominada <em>Exclusión óptima</em> es la que presenta la menor curtosis y asimetría. </p>
+<p>A continuación, se muestra una gráfica similar, en la que se compara la amplitud de las distribuciones de simulación respecto al tipo de tendencia. Nuevamente, se observa que con cualquiera de los tres tipos de componentes de tendencia, se tienen distribuciones con mayor desviación estándar en la medida que solamente excluye alguno gastos básicos relacionado a energéticos.</p>
+<p><img alt="" src="images/exclusion-fija/result/trend-sens.png" /></p>
+<p>En la siguiente gráfica, se compara la amplitud de las distribuciones de simulación en los diferentes períodos de evaluación. En este caso, se observa que las distribuciones con mayor rango son las del período de transición, en cualquiera de los escenarios de tendencia. Además, se hace notar que al tendencia exponencial es la que produce una mayor amplitud en los rangos de MSE en todas las medidas de exclusión fija, así como cualquier periodo de evaluación. </p>
+<p><img alt="" src="images/exclusion-fija/result/trend-date-sens-dash.png" /></p>
+<h3 id="analisis-de-trayectorias-para-los-datos-historicamente-observados">Análisis de trayectorias para los datos históricamente observados<a class="headerlink" href="#analisis-de-trayectorias-para-los-datos-historicamente-observados" title="Permanent link">&para;</a></h3>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/DIE-BANGUAT/EMI-docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../js/extra.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
