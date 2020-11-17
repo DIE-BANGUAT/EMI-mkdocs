@@ -108,6 +108,8 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../evaluacion/evaluacion-mai/">Evaluación de las medidas basadas en metodología de subyacente MAI</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../evaluacion/sub-dinamica/">Evaluación de las medidas basadas en exclusión dinámica</a>
+                    </li>
                 </ul>
       </div>
     </div>
@@ -178,20 +180,16 @@ $$ \text{MSE}(\hat{\theta}) = \text{E}\left[ (\hat{\theta}-\theta)^2 \right] = \
 </ul>
 <h5 id="descomposicion-aditiva-del-mse">Descomposición aditiva del MSE<a class="headerlink" href="#descomposicion-aditiva-del-mse" title="Permanent link">&para;</a></h5>
 <ul>
-<li>Adicionalmente, esto se puede expresar como 
-<!-- - (ver documento anexo FMI):  -->
-$$ \text{MSE}(\hat{\theta}) = \text{Sesgo}^2(\hat{\theta}, \theta) + (s_\theta - s_{\hat{\theta}})^2 + 2(1-r) s_\theta s_{\hat{\theta}} $$ </li>
-<li>
-<p>en donde: </p>
-<ul>
-<li><span><span class="MathJax_Preview">s_\theta</span><script type="math/tex">s_\theta</script></span> es el error estándar del parámetro (a través del tiempo). </li>
-<li><span><span class="MathJax_Preview">s_{\hat{\theta}}</span><script type="math/tex">s_{\hat{\theta}}</script></span> es el error estándar del estimador (a través del tiempo).</li>
-<li><span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> representa el coeficiente de correlación muestral entre parámetro y estimador.  </li>
+<li>Adicionalmente, esto se puede expresar como </li>
 </ul>
-</li>
-<li>
-<p>Esto significa que el MSE representa una medida completa de eficiencia de un estimador, que relaciona la variabilidad, el sesgo y la correlación entre parámetro y estimador. </p>
-</li>
+<!-- - (ver documento anexo FMI):  -->
+<p>$$ \text{MSE}(\hat{\theta}) = \text{Sesgo}^2(\hat{\theta}, \theta) + (s_\theta - s_{\hat{\theta}})^2 + 2(1-r) s_\theta s_{\hat{\theta}} $$ 
+- en donde: 
+    - <span><span class="MathJax_Preview">s_\theta</span><script type="math/tex">s_\theta</script></span> es el error estándar del parámetro (a través del tiempo). 
+    - <span><span class="MathJax_Preview">s_{\hat{\theta}}</span><script type="math/tex">s_{\hat{\theta}}</script></span> es el error estándar del estimador (a través del tiempo).
+    - <span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> representa el coeficiente de correlación muestral entre parámetro y estimador.  </p>
+<ul>
+<li>Esto significa que el MSE representa una medida completa de eficiencia de un estimador, que relaciona la variabilidad, el sesgo y la correlación entre parámetro y estimador. </li>
 </ul>
 <h4 id="consideraciones-de-sesgo">Consideraciones de sesgo<a class="headerlink" href="#consideraciones-de-sesgo" title="Permanent link">&para;</a></h4>
 <ul>
