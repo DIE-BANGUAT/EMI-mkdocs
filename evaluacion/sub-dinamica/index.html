@@ -88,8 +88,6 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Evaluación de las medidas basadas en exclusión dinámica</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#proceso-de-optimizacion-se-los-limites-de-exclusion">Proceso de optimización se los límites de exclusión</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#resultados-de-la-evaluacion-de-diferentes-medidas-de-inflacion">Resultados de la evaluación de diferentes medidas de inflación</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#analisis-de-sensibilidad">Análisis de sensibilidad</a>
@@ -159,27 +157,36 @@
                 <h2 id="evaluacion-de-medidas-de-exclusion-dinamica">Evaluación de medidas de exclusión dinámica<a class="headerlink" href="#evaluacion-de-medidas-de-exclusion-dinamica" title="Permanent link">&para;</a></h2>
 <p>En esta sección se documentan los resultados del proceso de evaluación de la medida de inflación basadas en la exclusión dinámica de gastos básicos. Junto a dicha evaluación, se añade los resultados de la optimización de los límites para el recorte dinámico, explicado más adelante. </p>
 <p>Finalmente, se añade un análisis de sensibilidad, el cual se efectúa modificando algunos parámetros respecto de los criterios básicos de evaluación.</p>
-<h3 id="proceso-de-optimizacion-se-los-limites-de-exclusion">Proceso de optimización se los límites de exclusión<a class="headerlink" href="#proceso-de-optimizacion-se-los-limites-de-exclusion" title="Permanent link">&para;</a></h3>
-<p>Dada la desviación estándar <span><span class="MathJax_Preview">\sigma_{v_t}</span><script type="math/tex">\sigma_{v_t}</script></span> del conjunto <span><span class="MathJax_Preview">\lbrace v_{t,i}\rbrace_{i=1}^N</span><script type="math/tex">\lbrace v_{t,i}\rbrace_{i=1}^N</script></span>, la cual corresponde a las variaciones intermensuales de todos los gastos básicos en el periodo <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>, definimos el subconjunto </p>
+<p>Dada la desviación estándar <span><span class="MathJax_Preview">\sigma_{v_t}</span><script type="math/tex">\sigma_{v_t}</script></span> del conjunto <span><span class="MathJax_Preview">\lbrace v_{t,i}\rbrace_{i=1}^N</span><script type="math/tex">\lbrace v_{t,i}\rbrace_{i=1}^N</script></span>, la cual corresponde a las variaciones intermensuales de todos los gastos básicos en el periodo <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>, definimos la función </p>
 <div>
 <div class="MathJax_Preview">
-\mathscr{V}_t = \lbrace v_{t,i}:\bar{v_t} - \lambda_1 \sigma_{v_t}  \leq v_{t,i} \leq \bar{v_t} +\lambda_2 \sigma_{v_t} \rbrace
+w_{t,i} = \lbrace \begin{array}{cc} IPC_i&amp; \bar{v_t} - \lambda_1\sigma_{v_t} \leq v_{t,i} \leq \bar{v_t} + \lambda_2 \sigma_{v_t} \\
+0 &amp;  \text{en otro caso} \end{array}
 </div>
 <script type="math/tex; mode=display">
-\mathscr{V}_t = \lbrace v_{t,i}:\bar{v_t} - \lambda_1 \sigma_{v_t}  \leq v_{t,i} \leq \bar{v_t} +\lambda_2 \sigma_{v_t} \rbrace
+w_{t,i} = \lbrace \begin{array}{cc} IPC_i& \bar{v_t} - \lambda_1\sigma_{v_t} \leq v_{t,i} \leq \bar{v_t} + \lambda_2 \sigma_{v_t} \\
+0 &  \text{en otro caso} \end{array}
 </script>
 </div>
-<p>El conjunto <span><span class="MathJax_Preview">\mathscr{V}_t</span><script type="math/tex">\mathscr{V}_t</script></span>, corresponde a aquellas variaciones intermensuales en el periodo <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> que se encuentran en el rango especificado, en donde los parámetros <span><span class="MathJax_Preview">\lambda_1</span><script type="math/tex">\lambda_1</script></span> y <span><span class="MathJax_Preview">\lambda_2</span><script type="math/tex">\lambda_2</script></span> son los que determinan la amplitud del mismo. </p>
-<p>Sobre el conjunto anterior se puede calcular una variación intermensual ponderada</p>
+<p>A partir de los nuevos pesos, computamos una variación intermensual promedio ponderada</p>
 <div>
 <div class="MathJax_Preview">
-v_t = \sum_ {v_{t,i} \in \mathscr{V}_t} \dfrac{IPC_{v_{t,i}}}{\sum_ {v_{t,i} \in \mathscr{V}_t}IPC_{v_{t,i}}}v_{t,i}
+\hat{v_t} = \sum_{i=1}^N \dfrac{w_{t,i}}{\sum_{i=1}^N w_{t,i}}v_{t,i}
 </div>
 <script type="math/tex; mode=display">
-v_t = \sum_ {v_{t,i} \in \mathscr{V}_t} \dfrac{IPC_{v_{t,i}}}{\sum_ {v_{t,i} \in \mathscr{V}_t}IPC_{v_{t,i}}}v_{t,i}
+\hat{v_t} = \sum_{i=1}^N \dfrac{w_{t,i}}{\sum_{i=1}^N w_{t,i}}v_{t,i}
 </script>
 </div>
-<p>la cual corresponde a la inflación subyacente dinámica. </p>
+<p>con la cual podemos computar un nuevo índice de precios capitalizando a partir del periodo inicial del modo siguiente</p>
+<div>
+<div class="MathJax_Preview">
+\hat{IPC_t} = 100 \prod_{j=1}^t \hat{v_j}
+</div>
+<script type="math/tex; mode=display">
+\hat{IPC_t} = 100 \prod_{j=1}^t \hat{v_j}
+</script>
+</div>
+<p>En donde <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> corresponde a la posición relativa respecto al periodo inicial. Esta ecuación corresponde al cómputo de la inflación subyacente dinámica.  </p>
 <p>El recorte usual para la medida de inflación subyacente dinámica corresponde al recorte simétrico, definido por <span><span class="MathJax_Preview">\lambda_1 = \lambda_2 = 2</span><script type="math/tex">\lambda_1 = \lambda_2 = 2</script></span>, siendo este uno de los dos recortes a evaluar en las posteriores secciones. Además de esto, y utilizando la HEMI, se plante el problema de optimización</p>
 <div>
 <div class="MathJax_Preview">
