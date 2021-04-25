@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Combinaciones lineales de medidas de inflación óptimas - HEMI</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Combinaciones lineales de medidas de inflaci\u00f3n \u00f3ptimas";
+    var mkdocs_page_input_path = "evaluacion\\combinacion-lineal.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/matlab.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> HEMI</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">HEMI</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Herramienta de evaluación de medidas de inflación (HEMI) de Guatemala</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Principal</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../cuerpo/introduccion/">Introducción</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../cuerpo/justificacion/">Justificación</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Calibración</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../calibracion/Calibraci%C3%B3n%20varianza%20RW/">Especificación y calibración del factor de tendencia estocástica</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../calibracion/Selecci%C3%B3n%20simulaciones/">Selección del número de simulaciones</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../calibracion/Determinaci%C3%B3n%20medida%20evaluaci%C3%B3n/">Selección de la medida de evaluación</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../calibracion/Remuestreo%20block%20bootstrap/">Remuestreo con block bootstrap</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Evaluación</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../criterios-de-evaluacion/">Criterios de evaluación y pruebas de sensibilidad</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../inflaciones-totales/">Evaluación de las medidas de inflación total</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../evaluacion-percentiles/">Evaluación de las medidas basadas en percentiles</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../evaluacion-exclusion-fija/">Evaluación de las medidas basadas en exclusión fija</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../evaluacion-medias-truncadas/">Evaluación de las medidas basadas en medias truncadas</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../evaluacion-mai/">Evaluación de las medidas basadas en metodología de subyacente MAI</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../sub-dinamica/">Evaluación de las medidas basadas en exclusión dinámica</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Combinaciones lineales de medidas de inflación óptimas</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#combinacion-lineal-que-minimiza-el-mse-promedio">Combinación lineal que minimiza el MSE promedio</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#minimizacion-de-mse-promedio">Minimización de MSE promedio</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#trayectorias-historicas-de-medidas-de-inflacion-que-minimizan-el-mse-promedio">Trayectorias históricas de medidas de inflación que minimizan el MSE promedio</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ejercicio-de-optimizacion-sin-la-medida-de-exclusion-fija">Ejercicio de optimización sin la medida de exclusión fija</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#minimizacion-de-mse">Minimización de MSE</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#trayectorias-historicas-de-medidas-de-inflacion-que-minimizan-el-mse-promedio_1">Trayectorias históricas de medidas de inflación que minimizan el MSE promedio</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#combinacion-lineal-que-maximiza-la-correlacion-lineal-promedio">Combinación lineal que maximiza la correlación lineal promedio</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#maximizacion-del-coeficiente-de-correlacion-lineal-promedio">Maximización del coeficiente de correlación lineal promedio</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#trayectorias-historicas-de-medidas-de-inflacion-que-maximizan-la-correlacion-lineal-promedio">Trayectorias históricas de medidas de inflación que maximizan la correlación lineal promedio</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#combinacion-lineal-que-minimiza-el-valor-absoluto-de-error-medio-promedio">Combinación lineal que minimiza el valor absoluto de error medio promedio</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#minimizacion-del-valor-absoluto-de-error-medio-promedio">Minimización del valor absoluto de error medio promedio</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#trayectorias-historicas-de-medidas-de-inflacion-que-minimizan-el-valor-absoluto-de-error-medio-promedio">Trayectorias históricas de medidas de inflación que minimizan el valor absoluto de error medio promedio</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../intervalos-confianza/">Conformación de intervalos de confianza para el nivel de inflación</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">HEMI</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Evaluación &raquo;</li>
+        
+      
+    
+    <li>Combinaciones lineales de medidas de inflación óptimas</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/DIE-BANGUAT/EMI-docs/edit/master/docs/evaluacion/combinacion-lineal.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="optimizacion-de-la-combinacion-lineal-de-variantes-de-medidas-de-inflacion-subyacente">Optimización de la combinación lineal de variantes de medidas de inflación subyacente<a class="headerlink" href="#optimizacion-de-la-combinacion-lineal-de-variantes-de-medidas-de-inflacion-subyacente" title="Permanent link">&para;</a></h2>
+<h3 id="combinacion-lineal-que-minimiza-el-mse-promedio">Combinación lineal que minimiza el MSE promedio<a class="headerlink" href="#combinacion-lineal-que-minimiza-el-mse-promedio" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Se aplica la misma metodología de combinación lineal óptima utilizada en la optimización de la inflación subyacente MAI.</li>
+<li>La metodología de combinación se aplica utilizando las medidas de inflación con menor MSE de cada método de cómputo. </li>
+<li>Se obtiene una solución libre y una solución restringida (ligeramente subóptima).</li>
+<li>En la variante de optimización restringida:</li>
+<li>Se requiere que los ponderadores sean positivos y que su suma sea igual a 1. </li>
+<li>Se utiliza como punto inicial una distribución uniforme de ponderadores y una distribución de ponderadores construidos con base en el inverso de los valores de MSE promedio de cada medida y se obtienen los mismos resultados.</li>
+</ul>
+<h4 id="minimizacion-de-mse-promedio">Minimización de MSE promedio<a class="headerlink" href="#minimizacion-de-mse-promedio" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Medidas de inflación incluidas en la combinación lineal y se obtienen los siguientes ponderadores.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Medida de inflación</strong></th>
+<th align="center"><span><span class="MathJax_Preview">\overline{\text{MSE}}</span><script type="math/tex">\overline{\text{MSE}}</script></span></th>
+<th align="right"><span><span class="MathJax_Preview">\hat{w}_{\text{libre}}</span><script type="math/tex">\hat{w}_{\text{libre}}</script></span></th>
+<th align="right"><span><span class="MathJax_Preview">\hat{w}_{\text{rest}}</span><script type="math/tex">\hat{w}_{\text{rest}}</script></span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Percentil equiponderado 72</td>
+<td align="center">0.2498</td>
+<td align="right">-0.3238</td>
+<td align="right">0.0001</td>
+</tr>
+<tr>
+<td align="left">Percentil ponderado 70</td>
+<td align="center">0.4149</td>
+<td align="right">0.0103</td>
+<td align="right">0.0001</td>
+</tr>
+<tr>
+<td align="left">Media truncada equiponderada (57.5, 84)</td>
+<td align="center">0.2171</td>
+<td align="right">1.0546</td>
+<td align="right">0.6446</td>
+</tr>
+<tr>
+<td align="left">Media truncada ponderada (15, 97)</td>
+<td align="center">0.2948</td>
+<td align="right">-0.1390</td>
+<td align="right">0.0001</td>
+</tr>
+<tr>
+<td align="left">Exclusión fija óptima con criterio de volatilidad</td>
+<td align="center">0.6414</td>
+<td align="right">0.2852</td>
+<td align="right">0.2423</td>
+</tr>
+<tr>
+<td align="left">Subyacente dinámica con factores (0.3222, 1.7283)</td>
+<td align="center">0.2906</td>
+<td align="right">-0.0800</td>
+<td align="right">0.0001</td>
+</tr>
+<tr>
+<td align="left">Subyacente MAI óptima MSE</td>
+<td align="center">0.2162</td>
+<td align="right">0.1903</td>
+<td align="right">0.1128</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="../images/combinacion-lineal/grafica-violin-mse.png" /></p>
+<p><img alt="" src="../images/combinacion-lineal/ponderadores-mse.png" /></p>
+<ul>
+<li><strong><em>Combinación lineal óptima MSE promedio (solución libre)</em></strong></li>
+</ul>
+<div>
+<div class="MathJax_Preview">\overline{\text{MSE}} = 0.151965</div>
+<script type="math/tex; mode=display">\overline{\text{MSE}} = 0.151965</script>
+</div>
+<ul>
+<li>
+<p>Suma de ponderadores: <em>0.9975</em></p>
+</li>
+<li>
+<p><strong><em>Combinación lineal óptima MSE promedio (solución restringida)</em></strong></p>
+</li>
+</ul>
+<div>
+<div class="MathJax_Preview">\overline{\text{MSE}} = 0.156907</div>
+<script type="math/tex; mode=display">\overline{\text{MSE}} = 0.156907</script>
+</div>
+<ul>
+<li>Suma de ponderadores: <em>1.0000</em></li>
+</ul>
+<h4 id="trayectorias-historicas-de-medidas-de-inflacion-que-minimizan-el-mse-promedio">Trayectorias históricas de medidas de inflación que minimizan el MSE promedio<a class="headerlink" href="#trayectorias-historicas-de-medidas-de-inflacion-que-minimizan-el-mse-promedio" title="Permanent link">&para;</a></h4>
+<p><img alt="" src="../images/combinacion-lineal/trayectorias-combinacion-lineal-mse.png" /></p>
+<hr />
+<h3 id="ejercicio-de-optimizacion-sin-la-medida-de-exclusion-fija">Ejercicio de optimización sin la medida de exclusión fija<a class="headerlink" href="#ejercicio-de-optimizacion-sin-la-medida-de-exclusion-fija" title="Permanent link">&para;</a></h3>
+<ul>
+<li>En este ejercicio se lleva a cabo la minimización del error cuadrático medio de la combinación lineal de medidas de inflación. </li>
+<li>Se excluye la medida de inflaciíon denominada <strong><em>Exclusión fija óptima con criterio de volatilidad</em></strong></li>
+</ul>
+<h4 id="minimizacion-de-mse">Minimización de MSE<a class="headerlink" href="#minimizacion-de-mse" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Medidas de inflación incluidas en la combinación lineal: </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Medida de inflación</strong></th>
+<th align="center"><span><span class="MathJax_Preview">\overline{\text{MSE}}</span><script type="math/tex">\overline{\text{MSE}}</script></span></th>
+<th align="right"><span><span class="MathJax_Preview">\hat{w}_{\text{libre}}</span><script type="math/tex">\hat{w}_{\text{libre}}</script></span></th>
+<th align="right"><span><span class="MathJax_Preview">\hat{w}_{\text{rest}}</span><script type="math/tex">\hat{w}_{\text{rest}}</script></span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Percentil equiponderado 72</td>
+<td align="center">0.2498</td>
+<td align="right">-0.3852</td>
+<td align="right">0.0000</td>
+</tr>
+<tr>
+<td align="left">Percentil ponderado 70</td>
+<td align="center">0.4149</td>
+<td align="right">0.0642</td>
+<td align="right">0.0499</td>
+</tr>
+<tr>
+<td align="left">Media truncada equiponderada (57.5, 84)</td>
+<td align="center">0.2171</td>
+<td align="right">0.8457</td>
+<td align="right">0.4616</td>
+</tr>
+<tr>
+<td align="left">Media truncada ponderada (15, 97)</td>
+<td align="center">0.2948</td>
+<td align="right">0.0487</td>
+<td align="right">0.0691</td>
+</tr>
+<tr>
+<td align="left">Subyacente dinámica con factores (0.3222, 1.7283)</td>
+<td align="center">0.2906</td>
+<td align="right">0.0004</td>
+<td align="right">0.0095</td>
+</tr>
+<tr>
+<td align="left">Subyacente MAI óptima MSE</td>
+<td align="center">0.2162</td>
+<td align="right">0.4153</td>
+<td align="right">0.4099</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="../images/combinacion-lineal/ponderadores-MSE-sin-exclusi%C3%B3n-fija.png" /></p>
+<ul>
+<li><strong><em>Combinación lineal óptima MSE promedio (solución libre)</em></strong>  </li>
+</ul>
+<div>
+<div class="MathJax_Preview">\overline{\text{MSE}} = 0.192694</div>
+<script type="math/tex; mode=display">\overline{\text{MSE}} = 0.192694</script>
+</div>
+<ul>
+<li>Suma de ponderadores: <em>0.9891</em></li>
+<li><strong><em>Combinación lineal óptima MSE promedio (solución restringida)</em></strong>  </li>
+</ul>
+<div>
+<div class="MathJax_Preview">\overline{\text{MSE}} = 0.193813</div>
+<script type="math/tex; mode=display">\overline{\text{MSE}} = 0.193813</script>
+</div>
+<ul>
+<li>Suma de ponderadores: <em>1.0000</em></li>
+</ul>
+<h4 id="trayectorias-historicas-de-medidas-de-inflacion-que-minimizan-el-mse-promedio_1">Trayectorias históricas de medidas de inflación que minimizan el MSE promedio<a class="headerlink" href="#trayectorias-historicas-de-medidas-de-inflacion-que-minimizan-el-mse-promedio_1" title="Permanent link">&para;</a></h4>
+<p><img alt="" src="../images/combinacion-lineal/trayectorias-combinacion-mse-sin-exclusion-fija.png" /></p>
+<hr />
+<h3 id="combinacion-lineal-que-maximiza-la-correlacion-lineal-promedio">Combinación lineal que maximiza la correlación lineal promedio<a class="headerlink" href="#combinacion-lineal-que-maximiza-la-correlacion-lineal-promedio" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Se aplica la misma metodología de combinación lineal óptima utilizada en la optimización de la inflación subyacente MAI para maximizar el coeficiente de correlación lineal de evaluación.</li>
+<li>La función objetivo a optimizar es la correlación promedio.</li>
+<li>La metodología de combinación se aplica utilizando las medidas de inflación con mayor correlación promedio de cada método de cómputo. </li>
+<li>Se obtiene una solución libre y una solución restringida (ligeramente subóptima).</li>
+</ul>
+<h4 id="maximizacion-del-coeficiente-de-correlacion-lineal-promedio">Maximización del coeficiente de correlación lineal promedio<a class="headerlink" href="#maximizacion-del-coeficiente-de-correlacion-lineal-promedio" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Medidas de inflación incluidas en la combinación lineal: </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Medida de inflación</strong></th>
+<th align="center"><span><span class="MathJax_Preview">\bar{\rho}</span><script type="math/tex">\bar{\rho}</script></span></th>
+<th align="right"><span><span class="MathJax_Preview">\hat{w}_{\text{libre}}</span><script type="math/tex">\hat{w}_{\text{libre}}</script></span></th>
+<th align="right"><span><span class="MathJax_Preview">\hat{w}_{\text{rest}}</span><script type="math/tex">\hat{w}_{\text{rest}}</script></span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Percentil equiponderado 80</td>
+<td align="center">0.985750</td>
+<td align="right">0.0859</td>
+<td align="right">0.1127</td>
+</tr>
+<tr>
+<td align="left">Percentil ponderado 80</td>
+<td align="center">0.975427</td>
+<td align="right">0.0071</td>
+<td align="right">0.0000</td>
+</tr>
+<tr>
+<td align="left">Media truncada equiponderada (57.5, 92)</td>
+<td align="center">0.986799</td>
+<td align="right">0.1380</td>
+<td align="right">0.1548</td>
+</tr>
+<tr>
+<td align="left">Media truncada ponderada (52.5, 97)</td>
+<td align="center">0.979170</td>
+<td align="right">-0.0191</td>
+<td align="right">0.0000</td>
+</tr>
+<tr>
+<td align="left">Exclusión fija óptima con criterio de volatilidad</td>
+<td align="center">0.973143</td>
+<td align="right">0.1352</td>
+<td align="right">0.1597</td>
+</tr>
+<tr>
+<td align="left">Subyacente dinámica con recortes (0.3590, 2.5004)</td>
+<td align="center">0.978045</td>
+<td align="right">-0.0473</td>
+<td align="right">0.0000</td>
+</tr>
+<tr>
+<td align="left">Subyacente MAI óptima de correlación</td>
+<td align="center">0.986457</td>
+<td align="right">0.5140</td>
+<td align="right">0.5728</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="../images/combinacion-lineal/grafica-violin-corr.png" /></p>
+<p><img alt="" src="../images/combinacion-lineal/ponderadores-correlaci%C3%B3n.png" /></p>
+<ul>
+<li><strong><em>Combinación lineal óptima para correlación promedio (solución libre)</em></strong></li>
+</ul>
+<div>
+<div class="MathJax_Preview">\overline{\rho} = 0.9887851</div>
+<script type="math/tex; mode=display">\overline{\rho} = 0.9887851</script>
+</div>
+<ul>
+<li>
+<p>Suma de ponderadores: <em>0.8137</em></p>
+</li>
+<li>
+<p><strong><em>Combinación lineal óptima para correlación promedio (solución restringida)</em></strong></p>
+</li>
+</ul>
+<div>
+<div class="MathJax_Preview">\overline{\rho} = 0.9886683</div>
+<script type="math/tex; mode=display">\overline{\rho} = 0.9886683</script>
+</div>
+<ul>
+<li>Suma de ponderadores: <em>1.0000</em></li>
+</ul>
+<h4 id="trayectorias-historicas-de-medidas-de-inflacion-que-maximizan-la-correlacion-lineal-promedio">Trayectorias históricas de medidas de inflación que maximizan la correlación lineal promedio<a class="headerlink" href="#trayectorias-historicas-de-medidas-de-inflacion-que-maximizan-la-correlacion-lineal-promedio" title="Permanent link">&para;</a></h4>
+<p><img alt="" src="../images/combinacion-lineal/trayectorias-combinacion-lineal-corr.png" /></p>
+<hr />
+<h3 id="combinacion-lineal-que-minimiza-el-valor-absoluto-de-error-medio-promedio">Combinación lineal que minimiza el valor absoluto de error medio promedio<a class="headerlink" href="#combinacion-lineal-que-minimiza-el-valor-absoluto-de-error-medio-promedio" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Se aplica la misma metodología de combinación lineal óptima utilizada en la optimización de la inflación subyacente MAI para minimizar el valor absoluto de error medio promedio.</li>
+<li>La metodología de combinación se aplica utilizando las medidas de inflación con menor valor asboluto de error medio promedio de cada método de cómputo. </li>
+<li>Se obtiene una solución libre y una solución restringida.</li>
+</ul>
+<hr />
+<h4 id="minimizacion-del-valor-absoluto-de-error-medio-promedio">Minimización del valor absoluto de error medio promedio<a class="headerlink" href="#minimizacion-del-valor-absoluto-de-error-medio-promedio" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Medidas de inflación incluidas en la combinación lineal: </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Medida de inflación</strong></th>
+<th align="center"><span><span class="MathJax_Preview">\text{ME}</span><script type="math/tex">\text{ME}</script></span></th>
+<th align="right"><span><span class="MathJax_Preview">\hat{w}_{\text{libre}}</span><script type="math/tex">\hat{w}_{\text{libre}}</script></span></th>
+<th align="right"><span><span class="MathJax_Preview">\hat{w}_{\text{rest}}</span><script type="math/tex">\hat{w}_{\text{rest}}</script></span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Percentil equiponderado 72</td>
+<td align="center">-0.0620</td>
+<td align="right">0.1444</td>
+<td align="right">0.0294</td>
+</tr>
+<tr>
+<td align="left">Percentil ponderado 70</td>
+<td align="center">-0.0698</td>
+<td align="right">0.1444</td>
+<td align="right">0.0268</td>
+</tr>
+<tr>
+<td align="left">Media truncada equiponderada (42.5, 91)</td>
+<td align="center">-0.0009</td>
+<td align="right">0.1444</td>
+<td align="right">0.1350</td>
+</tr>
+<tr>
+<td align="left">Media truncada ponderada (52.5, 85)</td>
+<td align="center">0.0116</td>
+<td align="right">0.1444</td>
+<td align="right">0.5160</td>
+</tr>
+<tr>
+<td align="left">Exclusión fija óptima con criterio de volatilidad</td>
+<td align="center">-0.3053</td>
+<td align="right">0.1444</td>
+<td align="right">0.0072</td>
+</tr>
+<tr>
+<td align="left">Subyacente dinámica con factores (0.3524, 1.8829)</td>
+<td align="center">0.0000</td>
+<td align="right">0.1444</td>
+<td align="right">0.1434</td>
+</tr>
+<tr>
+<td align="left">Subyacente MAI óptima ME</td>
+<td align="center">0.0000</td>
+<td align="right">0.1444</td>
+<td align="right">0.1423</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="../images/combinacion-lineal/ponderadores-ME.png" /></p>
+<hr />
+<ul>
+<li><strong><em>Combinación lineal óptima para <span><span class="MathJax_Preview">|\overline{\text{ME}}|</span><script type="math/tex">|\overline{\text{ME}}|</script></span> (solución libre)</em></strong></li>
+</ul>
+<div>
+<div class="MathJax_Preview">|\overline{\text{ME}}| = 0</div>
+<script type="math/tex; mode=display">|\overline{\text{ME}}| = 0</script>
+</div>
+<ul>
+<li>
+<p>Suma de ponderadores: <em>1.0109</em></p>
+</li>
+<li>
+<p><strong><em>Combinación lineal óptima para <span><span class="MathJax_Preview">|\overline{\text{ME}}|</span><script type="math/tex">|\overline{\text{ME}}|</script></span> (solución restringida)</em></strong></p>
+</li>
+</ul>
+<div>
+<div class="MathJax_Preview">|\overline{\text{ME}}| = 0</div>
+<script type="math/tex; mode=display">|\overline{\text{ME}}| = 0</script>
+</div>
+<ul>
+<li>Suma de ponderadores: <em>1.0000</em></li>
+</ul>
+<h4 id="trayectorias-historicas-de-medidas-de-inflacion-que-minimizan-el-valor-absoluto-de-error-medio-promedio">Trayectorias históricas de medidas de inflación que minimizan el valor absoluto de error medio promedio<a class="headerlink" href="#trayectorias-historicas-de-medidas-de-inflacion-que-minimizan-el-valor-absoluto-de-error-medio-promedio" title="Permanent link">&para;</a></h4>
+<p><img alt="" src="../images/combinacion-lineal/trayectorias-combinacion-lineal-me.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../intervalos-confianza/" class="btn btn-neutral float-right" title="Conformación de intervalos de confianza para el nivel de inflación">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../sub-dinamica/" class="btn btn-neutral" title="Evaluación de las medidas basadas en exclusión dinámica"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/DIE-BANGUAT/EMI-docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../sub-dinamica/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../intervalos-confianza/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../js/extra.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

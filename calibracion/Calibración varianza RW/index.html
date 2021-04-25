@@ -96,6 +96,10 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../evaluacion/sub-dinamica/">Evaluación de las medidas basadas en exclusión dinámica</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../evaluacion/combinacion-lineal/">Combinaciones lineales de medidas de inflación óptimas</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../evaluacion/intervalos-confianza/">Conformación de intervalos de confianza para el nivel de inflación</a>
+                    </li>
                 </ul>
       </div>
     </div>
@@ -208,7 +212,6 @@ corresponde a la media móvil de 12 meses de las diferencias en las variaciones 
 </table>
 <p>Ahora se procederá a computar una señal de ruido blanco utilizando la varianza de la media móvil de 12 meses de las variaciones intermensuales del IPC de la base 2000 y del período completo. A continuación, como ejemplo, se muestra una de las realizaciones:  </p>
 <!-- **Trayectorias de la caminata aleatoria $\rho_t$** -->
-
 <p><img alt="Ruido blanco" src="../images/calibracion-varianza/2020-09-11-11-10-08.png" /></p>
 <p>Como se puede observar, la volatilidad de la señal de ruido blanco utilizando la varianza del período completo (<span><span class="MathJax_Preview">\text{Var}(\delta_t) = 0.0027</span><script type="math/tex">\text{Var}(\delta_t) = 0.0027</script></span>) es ligeramente menor a la volatilidad de la señal de ruido blanco que utiliza la varianza solamente de la base 2000 (<span><span class="MathJax_Preview">\text{Var}(\delta_t) = 0.0035</span><script type="math/tex">\text{Var}(\delta_t) = 0.0035</script></span>); aunque, en apariencia, la diferencia de volatilidad no parece muy grande.</p>
 <p>A continuación se procederá a utilizar la trayectoria de la caminata aleatoria calibrada a la varianza del período completo para computar el factor de tendencia estocástica de la inflación y las correspondientes trayectorias paramétricas de inflación. Esto permitirá evaluar si la volatilidad calibrada a través de este procedimiento es adecuada; es decir, si permite que la evolución de la tendencia estocástica genere cambios significativos, pero no demasiado grandes, en la trayectoria de la inflación interanual.</p>
@@ -221,28 +224,20 @@ corresponde a la media móvil de 12 meses de las diferencias en las variaciones 
 </ul>
 <p>En la siguiente figura se aprecian los tres diferentes factores multiplicativos de tendencia que podrían aplicarse en el proceso de cómputo de inflación paramétrica y en el remuestreo.</p>
 <!-- **Factores de tendencia inflacionaria** -->
-
 <!-- ![Componentes tendencia](images/calibracion-varianza/2020-09-08-14-26-28.png) -->
-
 <p><img alt="Componentes tendencia" src="../images/calibracion-varianza/2020-09-11-11-11-11.png" /></p>
 <p>Como referencia, se muestran las trayectorias de inflación paramétrica sin tendencia.  </p>
 <!-- **Trayectorias de inflación paramétrica sin tendencia inflacionaria** -->
-
 <!-- ![Trayectorias paramétricas sin tendencia SN](images/calibracion-varianza/2020-09-08-14-27-54.png) -->
-
 <p><img alt="Trayectorias paramétricas sin tendencia SN" src="../images/calibracion-varianza/2020-09-11-11-10-56.png" /></p>
 <p>Seguidamente se muestran las trayectorias de inflación paramétrica aplicando el factor tendencial multiplicativo que se muestra en color morado en la figura denominada "Factores de Tendencia Inflacionaria".</p>
 <!-- **Trayectorias de inflación paramétrica con tendencia inflacionaria estocástica** -->
-
 <!-- ![Trayectorias paramétricas tendencia multiplicativa RW](images/calibracion-varianza/2020-09-08-14-28-19.png) -->
-
 <p><img alt="Trayectorias paramétricas tendencia multiplicativa RW" src="../images/calibracion-varianza/2020-09-11-11-11-52.png" /></p>
 <p>Como se observa, se obtienen trayectorias de inflación paramétrica con tendencia estocástica y moderada volatilidad, por lo que el método de calibración puede considerarse adecuadamente escalado para modelar la varianza del factor multiplicativo de la tendencia.</p>
 <p>Finalmente, a continuación se muestran las trayectorias de inflación paramétrica aplicando el factor multiplicativo de tendencia de crecimiento exponencial determinístico que se muestra en color azul en la figura denominada "Factores de tendencia inflacionaria".</p>
 <!-- **Trayectorias de inflación paramétrica con tendencia inflacionaria de crecimiento exponencial** -->
-
 <!-- ![Trayectorias paramétricas tendencia multiplicativa EXP](images/calibracion-varianza/2020-09-08-14-29-00.png) -->
-
 <p><img alt="Trayectorias paramétricas tendencia multiplicativa EXP" src="../images/calibracion-varianza/2020-09-11-11-12-22.png" /></p>
 <div class="footnote">
 <hr />
